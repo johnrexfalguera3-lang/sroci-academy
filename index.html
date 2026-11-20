@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SROCI Interactive Training Academy & GICF Portal</title>
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 Free for crisp corporate iconography -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#0a1122',
+              900: '#101d3b',
+              800: '#192b54',
+              700: '#233b70',
+            },
+            brandOrange: {
+              500: '#f26522',
+              600: '#d95314',
+              50: '#fff4ee',
+            },
+            slateBg: '#f4f6fa',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #f4f6fa;
+      color: #101d3b;
+      overflow-x: hidden;
+    }
+    .canva-embed-frame {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e2e8f0;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+
+    /* Deliberate, smooth animations across buttons, portals, panels, and cards */
+    button, a, .nav-tab-btn, .portal-card-btn, .stage-filter-btn, .wf-node-btn, .client-pill-btn {
+      transition:
+        background-color 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    }
+    button:active {
+      transform: scale(0.985);
+    }
+
+    @keyframes slowRevealUp {
+      0% {
+        opacity: 0;
+        transform: translateY(18px) scale(0.99);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .animate-slow-reveal {
+      animation: slowRevealUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .tab-panel:not(.hidden) {
+      animation: slowRevealUp 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .module-card {
+      transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.95s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.95s ease;
+    }
+    .module-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px -6px rgba(16, 29, 59, 0.14);
+    }
+
+    .flowchart-connector {
+      position: relative;
+    }
+    .flowchart-connector::after {
+      content: '\f061';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #f26522;
+      font-size: 11px;
+      z-index: 10;
+    }
+    @media (max-width: 1023px) {
+      .flowchart-connector::after {
+        display: none;
+      }
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brandOrange-500 selection:text-white">
+
+  <!-- ===================================================================== -->
+  <!-- 0. SROCI ACADEMY SIGN-IN / CHECK-IN GATE PAGE                         -->
+  <!-- ===================================================================== -->
+  <section id="loginGatePage" class="min-h-screen bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white flex flex-col justify-between p-4 sm:p-8">
+    <div class="canva-embed-frame w-full flex items-center justify-between border-b border-white/10 pb-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brandOrange-500 flex items-center justify-center font-display font-extrabold text-white text-lg shadow-lg">
+          S
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-base sm:text-lg tracking-tight block leading-none">SROCI ACADEMY</span>
+          <span class="text-[11px] text-slate-300">Strategic Recruitment Operations & Compliance Institute</span>
+        </div>
+      </div>
+      <span class="px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-xs font-semibold text-slate-200">
+        <i class="fa-solid fa-shield-halved text-brandOrange-500 mr-1.5"></i>Portal Check-In
+      </span>
+    </div>
+
+    <div class="canva-embed-frame w-full my-auto py-8 flex justify-center animate-slow-reveal">
+      <div class="w-full max-w-md bg-white text-navy-900 rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-5">
+        <div class="space-y-1.5 border-b border-slate-100 pb-4">
+          <span class="px-2.5 py-0.5 rounded-full bg-brandOrange-50 text-brandOrange-700 text-[11px] font-extrabold uppercase tracking-wider">SROCI Academy Access</span>
+          <h1 class="font-display font-extrabold text-2xl text-navy-900">Sign In to SROCI Academy</h1>
+          <p class="text-xs text-slate-500">Enter your credentials below to proceed to the SROCI Academy Cover Page.</p>
+        </div>
+
+        <form id="portalSignInForm" onsubmit="handlePortalSignIn(event)" class="space-y-4 text-xs">
+          <div>
+            <label for="signInName" class="block font-bold text-navy-900 mb-1">Full Name <span class="text-rose-500">*</span></label>
+            <input type="text" id="signInName" required placeholder="Enter your full name" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-navy-900 focus:outline-none focus:border-brandOrange-500" />
+          </div>
+
+          <div>
+            <label for="signInRole" class="block font-bold text-navy-900 mb-1">Role <span class="text-rose-500">*</span></label>
+            <select id="signInRole" onchange="toggleSignInBatchField()" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 bg-white text-navy-900 font-semibold focus:outline-none focus:border-brandOrange-500 cursor-pointer">
+              <option value="recruiter">Recruiter</option>
+              <option value="trainer">Trainer</option>
+              <option value="manager">Manager</option>
+            </select>
+          </div>
+
+          <div id="signInBatchContainer">
+            <label for="signInBatch" class="block font-bold text-navy-900 mb-1">Batch Number <span class="text-rose-500">*</span></label>
+            <input type="text" id="signInBatch" required placeholder="e.g., Batch 14" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-navy-900 focus:outline-none focus:border-brandOrange-500" />
+          </div>
+
+          <div>
+            <label for="signInPassword" class="block font-bold text-navy-900 mb-1">Password <span class="text-rose-500">*</span></label>
+            <input type="password" id="signInPassword" required placeholder="Enter role password" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-navy-900 focus:outline-none focus:border-brandOrange-500" />
+          </div>
+
+          <div id="signInErrorBox" class="hidden p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 font-semibold"></div>
+
+          <button type="submit" class="w-full py-3 rounded-xl bg-brandOrange-500 hover:bg-brandOrange-600 text-white font-display font-bold text-sm shadow-lg transition flex items-center justify-center gap-2">
+            <span>Enter SROCI Academy</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="canva-embed-frame w-full flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400 border-t border-white/10 pt-3">
+      <span>SROCI Academy • Global Integrated Candidate Funnel (GICF)</span>
+      <span>Authorized Personnel Only</span>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 1. SROCI ACADEMY COVER PAGE                                           -->
+  <!-- ===================================================================== -->
+  <section id="coverLandingPage" class="hidden min-h-screen bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white flex flex-col justify-between p-4 sm:p-8">
+    <!-- Top Cover Bar -->
+    <div class="canva-embed-frame w-full flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brandOrange-500 flex items-center justify-center font-display font-extrabold text-white text-lg shadow-lg">
+          S
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-base sm:text-lg tracking-tight block leading-none">SROCI ACADEMY</span>
+          <span class="text-[11px] text-slate-300">Strategic Recruitment Operations & Compliance Institute</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span id="coverUserBadge" class="px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-xs font-semibold text-slate-100">
+          <i class="fa-solid fa-graduation-cap text-brandOrange-500 mr-1.5"></i>SROCI Training & GICF Hub
+        </span>
+        <button type="button" onclick="signOutToGate()" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-semibold text-slate-200 transition">
+          <i class="fa-solid fa-right-from-bracket mr-1"></i>Sign Out
+        </button>
+      </div>
+    </div>
+
+    <!-- Cover Center Hero & Portal Launch Cards -->
+    <div class="canva-embed-frame w-full my-auto py-8 space-y-8 animate-slow-reveal">
+      <div class="max-w-3xl space-y-3">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brandOrange-500/20 border border-brandOrange-500/40 text-brandOrange-500 text-xs font-extrabold uppercase tracking-wider">
+          <i class="fa-solid fa-compass"></i>Select Your Learning & Operations Workspace
+        </span>
+        <h1 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight text-white">
+          Welcome to <span class="text-brandOrange-500">SROCI Academy</span>
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Choose between the structured 5-Day Cohort Training Portal or the live Global Integrated Candidate Funnel (GICF) Operations & Client Playbook Hub.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1: Standalone Training Portal -->
+        <div class="bg-white/10 backdrop-blur-xs border border-white/15 hover:border-brandOrange-500 rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 transition shadow-xl">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-xl bg-brandOrange-500 text-white text-xs font-extrabold uppercase">Track 01 • Onboarding</span>
+              <i class="fa-solid fa-chalkboard-user text-2xl text-brandOrange-500"></i>
+            </div>
+            <h2 class="font-display font-extrabold text-2xl text-white">Training Portal</h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Dedicated 5-Day Training Schedule and interactive slide-by-slide curriculum walkthrough covering Decks 1–4 (Ramp Anatomy, Multi-Channel Sourcing, Aim Fluent Coaching & Cross-Endorsement).
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-200 pt-1">
+              <li><i class="fa-solid fa-check text-brandOrange-500 mr-2"></i>Day 1 to Day 5 Structured Lesson Timeline</li>
+              <li><i class="fa-solid fa-check text-brandOrange-500 mr-2"></i>Interactive Slide Deck Explorer (Decks 1–4)</li>
+              <li><i class="fa-solid fa-check text-brandOrange-500 mr-2"></i>Focused Distraction-Free Cohort Mode</li>
+            </ul>
+          </div>
+          <button type="button" onclick="enterPortal('training')" class="portal-card-btn w-full py-3.5 rounded-2xl bg-brandOrange-500 hover:bg-brandOrange-600 text-white font-display font-bold text-sm shadow-lg flex items-center justify-center gap-2">
+            <span>Enter Training Portal</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Card 2: GICF Academy -->
+        <div class="bg-white text-navy-900 border border-slate-200 hover:border-brandOrange-500 rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 transition shadow-2xl">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-xl bg-navy-900 text-white text-xs font-extrabold uppercase">Track 02 • Operations</span>
+              <i class="fa-solid fa-diagram-project text-2xl text-brandOrange-500"></i>
+            </div>
+            <h2 class="font-display font-extrabold text-2xl text-navy-900">GICF Academy</h2>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Full operational execution workspace featuring the 18-node GICF Process Workflow, 9 Client ATS Playbooks, Assessments, and the SROCI Prescreening Summary & Lead Intake Tools.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-700 pt-1">
+              <li><i class="fa-solid fa-check text-brandOrange-500 mr-2"></i>18-Node Process Workflow & 9 Client Playbooks</li>
+              <li><i class="fa-solid fa-check text-brandOrange-500 mr-2"></i>8-Question Certification Exam & SOP Ordering</li>
+              <li><i class="fa-solid fa-check text-brandOrange-500 mr-2"></i>Prescreening Summary Builder & Lead Intake Template</li>
+            </ul>
+          </div>
+          <button type="button" onclick="enterPortal('gicf')" class="portal-card-btn w-full py-3.5 rounded-2xl bg-navy-900 hover:bg-navy-800 text-white font-display font-bold text-sm shadow-lg flex items-center justify-center gap-2">
+            <span>Enter GICF Academy</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cover Footer -->
+    <div class="canva-embed-frame w-full flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400 border-t border-white/10 pt-3">
+      <span>SROCI Academy • Global Integrated Candidate Funnel (GICF)</span>
+      <span>Strategic Recruitment Operations & Compliance Institute</span>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 2. MAIN APPLICATION SHELL (TRAINING PORTAL OR GICF ACADEMY)           -->
+  <!-- ===================================================================== -->
+  <div id="mainAppShell" class="hidden min-h-screen flex flex-col">
+    <!-- Top Sticky Header -->
+    <header class="bg-navy-900 text-white border-b border-navy-800 sticky top-0 z-40 shadow-md">
+      <div class="canva-embed-frame px-4 sm:px-6 py-3">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <!-- Brand Logo & Title -->
+          <div class="flex items-center gap-3">
+            <button type="button" onclick="returnToCover()" title="Back to Cover Page" class="w-10 h-10 rounded-xl bg-brandOrange-500 hover:bg-brandOrange-600 transition flex items-center justify-center font-display font-extrabold text-white text-lg shadow-inner shrink-0">
+              S
+            </button>
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="font-display font-extrabold text-base sm:text-lg tracking-tight whitespace-nowrap leading-none">SROCI ACADEMY</span>
+                <button type="button" onclick="returnToCover()" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-brandOrange-500/20 text-brandOrange-500 border border-brandOrange-500/40 hover:bg-brandOrange-500 hover:text-white transition whitespace-nowrap">
+                  <i class="fa-solid fa-house mr-1"></i>Cover Home
+                </button>
+              </div>
+              <p id="headerPortalSubtitle" class="text-[11px] text-slate-300 mt-1 truncate">GICF Academy • Workflow, Client Matrix & Assessments</p>
+            </div>
+          </div>
+
+          <!-- Global Search & Role Switcher -->
+          <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+            <!-- Instant Search Input -->
+            <div class="relative">
+              <i class="fa-solid fa-magnifying-glass text-slate-400 text-xs absolute left-3 top-1/2 -translate-y-1/2"></i>
+              <input
+                type="text"
+                id="globalSearchInput"
+                oninput="handleGlobalSearch(this.value)"
+                onkeydown="handleSearchEnter(event)"
+                placeholder="Search decks, SOPs, clients... (Enter)"
+                class="bg-navy-800 text-white placeholder-slate-400 text-xs rounded-xl pl-8 pr-7 py-2 w-48 sm:w-64 border border-slate-700 focus:outline-none focus:border-brandOrange-500 transition"
+              />
+              <button id="clearSearchBtn" onclick="clearGlobalSearch()" class="hidden text-slate-400 hover:text-white text-xs absolute right-2.5 top-1/2 -translate-y-1/2">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <!-- Role Switcher (Shown only inside GICF Academy) -->
+            <div id="gicfRoleSwitcherBox" class="flex items-center gap-1.5 bg-navy-800 px-2.5 py-1.5 rounded-xl border border-slate-700">
+              <span class="text-[11px] text-slate-300 font-medium hidden sm:inline">Role:</span>
+              <select id="roleSelector" onchange="handleRoleSwitchRequest(this.value)" class="bg-transparent text-xs font-semibold text-white focus:outline-none cursor-pointer">
+                <option value="recruiter" class="bg-navy-900 text-white">Agents / Recruiters</option>
+                <option value="trainer" class="bg-navy-900 text-white">Trainers</option>
+                <option value="management" class="bg-navy-900 text-white">Management</option>
+              </select>
+            </div>
+
+            <!-- Canva Embed Ready Guide Trigger -->
+            <button onclick="openCanvaModal()" class="bg-brandOrange-500 hover:bg-brandOrange-600 text-white text-xs font-semibold px-3 py-2 rounded-xl shadow transition flex items-center gap-1.5">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              <span class="hidden md:inline">Canva Embed</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Primary Navigation Tabs (Only GICF Academy tabs; Training Portal stays standalone) -->
+        <nav id="gicfNavTabs" class="flex items-center gap-1.5 sm:gap-2 mt-3 pt-2.5 border-t border-navy-800 overflow-x-auto pb-1">
+          <button type="button" onclick="switchTab('overview')" id="tab-overview" class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition bg-brandOrange-500 text-white shadow">
+            <i class="fa-solid fa-graduation-cap mr-1.5"></i>Academy Overview & Decks
+          </button>
+          <button type="button" onclick="switchTab('workflow')" id="tab-workflow" class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition text-slate-300 hover:bg-navy-800 hover:text-white">
+            <i class="fa-solid fa-diagram-project mr-1.5"></i>Process Workflow
+          </button>
+          <button type="button" onclick="switchTab('assessments')" id="tab-assessments" class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition text-slate-300 hover:bg-navy-800 hover:text-white">
+            <i class="fa-solid fa-clipboard-check mr-1.5"></i>Assessments
+          </button>
+          <button type="button" onclick="switchTab('role-hub')" id="tab-role-hub" class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition text-slate-300 hover:bg-navy-800 hover:text-white">
+            <i class="fa-solid fa-wrench mr-1.5"></i><span id="roleHubTabLabel">Tools & Execution Hub</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Role Context Banner (Shown only in GICF Academy) -->
+    <div id="gicfRoleBanner" class="bg-white border-b border-slate-200">
+      <div class="canva-embed-frame px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+        <div class="flex items-center gap-2">
+          <span id="roleBadge" class="inline-flex items-center px-2.5 py-0.5 rounded-full font-bold bg-blue-50 text-navy-900 border border-blue-200">
+            <i class="fa-solid fa-users mr-1.5 text-brandOrange-500"></i>Active User: Agents / Recruiters • Unified Portal Content
+          </span>
+          <span id="roleDescription" class="text-slate-600">
+            Universal portal view: all users access identical curriculum, workflows, tools, and live synchronized updates.
+          </span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-slate-500">Course Progress: <strong id="progressPercentText" class="text-navy-900">0%</strong></span>
+          <div class="w-28 h-2 bg-slate-200 rounded-full overflow-hidden">
+            <div id="progressBarFill" class="h-full bg-brandOrange-500 transition-all duration-300" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="canva-embed-frame w-full px-4 sm:px-6 py-6 flex-1 space-y-6">
+      <!-- Live Search Results Banner -->
+      <div id="searchResultsPanel" class="hidden bg-white rounded-2xl p-5 border-2 border-brandOrange-500/40 shadow-lg space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="font-display font-bold text-sm text-navy-900">
+            <i class="fa-solid fa-magnifying-glass text-brandOrange-500 mr-1.5"></i>
+            Search Results for "<span id="searchQueryEcho" class="text-brandOrange-600"></span>"
+          </h3>
+          <button onclick="clearGlobalSearch()" class="text-xs font-semibold text-slate-500 hover:text-navy-900">Close Search</button>
+        </div>
+        <div id="searchResultsList" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+      </div>
+
+      <!-- =================================================================== -->
+      <!-- PANEL A: STANDALONE TRAINING PORTAL (5-DAY TIMELINE & DECKS 1-4)    -->
+      <!-- =================================================================== -->
+      <section id="panel-training-portal" class="tab-panel hidden space-y-6">
+        <div class="bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-wrap items-center justify-between gap-4">
+          <div class="max-w-2xl">
+            <span class="px-3 py-1 rounded-full bg-brandOrange-500/20 border border-brandOrange-500/40 text-brandOrange-500 text-[11px] font-extrabold uppercase tracking-wider">Standalone Curriculum Track</span>
+            <h1 class="font-display font-extrabold text-2xl sm:text-3xl mt-2">5-Day Training Timeline & Interactive Decks 1–4</h1>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1.5">
+              Select any training day or presentation deck below to view the full lesson outline, key talking points, and slide walkthrough without leaving the Training Portal.
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="returnToCover()" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/15">
+              <i class="fa-solid fa-house mr-1.5"></i>Cover Page
+            </button>
+            <button type="button" onclick="enterPortal('gicf')" class="px-4 py-2.5 rounded-xl bg-brandOrange-500 hover:bg-brandOrange-600 text-white text-xs font-bold shadow">
+              <span>Open GICF Academy</span><i class="fa-solid fa-arrow-right ml-1.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Day Selector Buttons -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h2 class="font-display font-bold text-base text-navy-900"><i class="fa-solid fa-calendar-check text-brandOrange-500 mr-1.5"></i>Training Schedule & Discussion Flow</h2>
+            <div class="flex flex-wrap gap-1.5" id="timelineDayButtons">
+              <button type="button" onclick="renderDiscussionTimeline('all')" data-day="all" class="day-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-navy-900 text-white">All Days</button>
+              <button type="button" onclick="renderDiscussionTimeline('Day 1')" data-day="Day 1" class="day-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Day 1</button>
+              <button type="button" onclick="renderDiscussionTimeline('Day 2')" data-day="Day 2" class="day-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Day 2</button>
+              <button type="button" onclick="renderDiscussionTimeline('Day 3')" data-day="Day 3" class="day-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Day 3</button>
+              <button type="button" onclick="renderDiscussionTimeline('Day 4')" data-day="Day 4" class="day-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Day 4</button>
+              <button type="button" onclick="renderDiscussionTimeline('Day 5')" data-day="Day 5" class="day-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Day 5</button>
+            </div>
+          </div>
+          <div id="discussionTimelineContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </div>
+
+        <!-- Interactive Slide Deck Explorer -->
+        <div id="deckExplorerSection" class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+            <div>
+              <span class="px-2.5 py-0.5 rounded bg-brandOrange-50 text-brandOrange-700 text-[11px] font-extrabold uppercase">Interactive Deck Viewer</span>
+              <h2 class="font-display font-bold text-lg text-navy-900 mt-1">Slide-by-Slide Curriculum Explorer</h2>
+            </div>
+            <div class="flex flex-wrap gap-1.5" id="portalDeckSelector">
+              <button type="button" onclick="selectPortalDeck('deck1')" data-deck="deck1" class="deck-select-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-brandOrange-500 text-white">Deck 1: Ramp & Roles</button>
+              <button type="button" onclick="selectPortalDeck('deck2')" data-deck="deck2" class="deck-select-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Deck 2: Sourcing & Intake</button>
+              <button type="button" onclick="selectPortalDeck('deck3')" data-deck="deck3" class="deck-select-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Deck 3: Aim Fluent & ATS</button>
+              <button type="button" onclick="selectPortalDeck('deck4')" data-deck="deck4" class="deck-select-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Deck 4: Screening & Re-Match</button>
+            </div>
+          </div>
+
+          <div id="portalSlideViewer" class="bg-navy-950 text-white rounded-2xl p-6 sm:p-8 shadow-inner space-y-5"></div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PANEL 1: GICF ACADEMY OVERVIEW & DECKS                              -->
+      <!-- =================================================================== -->
+      <section id="panel-overview" class="tab-panel space-y-6">
+        <!-- Hero Banner -->
+        <div class="bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-wrap items-center justify-between gap-6">
+          <div class="max-w-2xl space-y-2.5">
+            <span class="px-3 py-1 rounded-full bg-brandOrange-500/20 border border-brandOrange-500/40 text-brandOrange-500 text-[11px] font-extrabold uppercase tracking-wider">Global Integrated Candidate Funnel</span>
+            <h1 class="font-display font-extrabold text-2xl sm:text-4xl tracking-tight leading-tight">
+              SROCI Recruitment Mastery & GICF Execution Academy
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Master the end-to-end 18-node GICF lifecycle, client-specific ATS tagging protocols, Aim Fluent vocal evaluation, and zero-waste cross-endorsement workflows.
+            </p>
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button type="button" onclick="switchTab('workflow')" class="px-4 py-2.5 rounded-xl bg-brandOrange-500 hover:bg-brandOrange-600 text-white text-xs font-bold shadow">
+                <i class="fa-solid fa-diagram-project mr-1.5"></i>Explore Process Workflow
+              </button>
+              <button type="button" onclick="switchTab('role-hub')" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/15">
+                <i class="fa-solid fa-clipboard-list mr-1.5"></i>Open Prescreening Summary Tool
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 w-full sm:w-auto">
+            <div class="bg-white/10 border border-white/15 rounded-2xl p-4 text-center">
+              <div class="font-display font-extrabold text-2xl text-brandOrange-500">18</div>
+              <div class="text-[11px] text-slate-300 font-medium">Process Nodes</div>
+            </div>
+            <div class="bg-white/10 border border-white/15 rounded-2xl p-4 text-center">
+              <div class="font-display font-extrabold text-2xl text-emerald-400">9</div>
+              <div class="text-[11px] text-slate-300 font-medium">Client Playbooks</div>
+            </div>
+            <div class="bg-white/10 border border-white/15 rounded-2xl p-4 text-center">
+              <div class="font-display font-extrabold text-2xl text-sky-400">4</div>
+              <div class="text-[11px] text-slate-300 font-medium">Core Decks</div>
+            </div>
+            <div class="bg-white/10 border border-white/15 rounded-2xl p-4 text-center">
+              <div class="font-display font-extrabold text-2xl text-amber-400">100%</div>
+              <div class="text-[11px] text-slate-300 font-medium">Universal Sync</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Core Curriculum Deck Cards -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="font-display font-bold text-lg text-navy-900">Core Curriculum Modules (Decks 1–4)</h2>
+            <span class="text-xs text-slate-500">Click any deck card to open its interactive lesson & mark completion</span>
+          </div>
+          <div id="moduleCardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PANEL 2: PROCESS WORKFLOW & CLIENT MATRIX                           -->
+      <!-- =================================================================== -->
+      <section id="panel-workflow" class="tab-panel hidden space-y-6">
+        <!-- Client-Specific ATS, Endorsement & Screening Playbook -->
+        <div id="clientMatrixCard" class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+            <div>
+              <span class="px-2.5 py-0.5 rounded bg-brandOrange-50 text-brandOrange-700 text-[11px] font-extrabold uppercase">SROCI Client Process Matrix</span>
+              <h2 class="font-display font-bold text-lg text-navy-900 mt-1">Client-Specific ATS, Endorsement & Screening Playbook</h2>
+              <p class="text-xs text-slate-500">Select a client account to inspect required ATS channels, agency tagging codes, assessment triggers, and active hiring sites.</p>
+            </div>
+          </div>
+
+          <!-- Exact Clients from Uploaded File -->
+          <div class="flex flex-wrap gap-2" id="clientSelectorButtons">
+            <button type="button" onclick="selectClientProcess('coforge')" data-client="coforge" class="client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-navy-900 text-white shadow-xs">Coforge</button>
+            <button type="button" onclick="selectClientProcess('transcom')" data-client="transcom" class="client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Transcom</button>
+            <button type="button" onclick="selectClientProcess('alorica')" data-client="alorica" class="client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Alorica</button>
+            <button type="button" onclick="selectClientProcess('tp')" data-client="tp" class="client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Teleperformance (TP)</button>
+            <button type="button" onclick="selectClientProcess('everise')" data-client="everise" class="client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Everise</button>
+            <button type="button" onclick="selectClientProcess('converge')" data-client="converge" class="client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Converge</button>
+            <button type="button" onclick="selectClientProcess('alldigitech')" data-client="alldigitech" class="client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">All Digitech</button>
+            <button type="button" onclick="selectClientProcess('wellsfargo')" data-client="wellsfargo" class="client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Wells Fargo</button>
+            <button type="button" onclick="selectClientProcess('inspiro')" data-client="inspiro" class="client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">Inspiro</button>
+          </div>
+
+          <div id="clientProcessDetailBox" class="bg-slateBg rounded-2xl p-5 border border-slate-200"></div>
+        </div>
+
+        <!-- Visual 5-Stage Process Workflow Flowchart -->
+        <div id="workflowFlowchartSection" class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+            <div>
+              <span class="px-2.5 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[11px] font-extrabold uppercase">End-to-End GICF Process Architecture</span>
+              <h2 class="font-display font-bold text-lg sm:text-xl text-navy-900 mt-1">5-Stage Recruitment Process Workflow (Nodes P01–P18)</h2>
+              <p class="text-xs text-slate-500">Click any Stage filter or Process Node (`P01`–`P18`) to inspect the operational SOP, decision gateways, and swimlane owners.</p>
+            </div>
+
+            <!-- Stage Filter Buttons -->
+            <div class="flex flex-wrap gap-1.5" id="workflowStageButtons">
+              <button type="button" onclick="filterWorkflowPhase('all')" data-phase="all" class="stage-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-brandOrange-500 text-white shadow-xs">All Stages (P01–P18)</button>
+              <button type="button" onclick="filterWorkflowPhase('S1')" data-phase="S1" class="stage-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">1. Ramp & Posting</button>
+              <button type="button" onclick="filterWorkflowPhase('S2')" data-phase="S2" class="stage-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">2. Lead Capture</button>
+              <button type="button" onclick="filterWorkflowPhase('S3')" data-phase="S3" class="stage-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">3. Pre-Screen & ATS</button>
+              <button type="button" onclick="filterWorkflowPhase('S4')" data-phase="S4" class="stage-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">4. Client Screening</button>
+              <button type="button" onclick="filterWorkflowPhase('S5')" data-phase="S5" class="stage-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200">5. Results & Cross-Endorse</button>
+            </div>
+          </div>
+
+          <!-- Flowchart Diagram + Right-Hand Node Inspector -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div id="workflowDiagramContainer" class="lg:col-span-8 space-y-4"></div>
+            <div id="workflowNodeInspector" class="lg:col-span-4 bg-navy-950 text-white rounded-2xl p-5 shadow-xl border border-navy-800 sticky top-28 space-y-4"></div>
+          </div>
+        </div>
+
+        <!-- Interactive Decision Gate Simulator -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+            <div>
+              <span class="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[11px] font-extrabold uppercase">Scenario Decision Trainer</span>
+              <h3 class="font-display font-bold text-lg text-navy-900 mt-1">Interactive Workflow Gate Simulator</h3>
+            </div>
+            <button type="button" onclick="resetSimulator()" class="text-xs font-bold text-slate-600 hover:text-navy-900 px-3 py-1.5 rounded-xl bg-slate-100">
+              <i class="fa-solid fa-rotate-left mr-1"></i>Restart Simulation
+            </button>
+          </div>
+          <div id="simulatorContainer" class="bg-slateBg rounded-2xl p-5 border border-slate-200"></div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PANEL 3: ASSESSMENTS                                                -->
+      <!-- =================================================================== -->
+      <section id="panel-assessments" class="tab-panel hidden space-y-6">
+        <!-- Trainer Gatekeeper Quick Toggle Card -->
+        <div id="assessTrainerControlCard" class="bg-amber-50 border border-amber-300 rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="text-xs font-extrabold text-amber-950 uppercase"><i class="fa-solid fa-key mr-1.5 text-brandOrange-600"></i>Cohort Assessment Gatekeeper Controls</div>
+            <p class="text-xs text-slate-700">Unlock or lock assessments universally for the active cohort, or use the approval buttons inside the Tools & Execution Hub.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" onclick="toggleAssessmentApproval('quiz')" id="quickToggleQuizBtn" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-navy-900 text-white shadow-xs">
+              Toggle Exam Lock
+            </button>
+            <button type="button" onclick="toggleAssessmentApproval('ordering')" id="quickToggleOrderingBtn" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-navy-900 text-white shadow-xs">
+              Toggle Ordering Lock
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Left 7 Cols: 8-Question Certification Exam -->
+          <div class="lg:col-span-7 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+              <div>
+                <span class="px-2.5 py-0.5 rounded bg-brandOrange-50 text-brandOrange-700 text-[11px] font-extrabold uppercase">Assessment 1</span>
+                <h2 class="font-display font-bold text-lg text-navy-900 mt-1">8-Question GICF Certification Exam</h2>
+              </div>
+              <label id="trainerAnswerToggleBox" class="inline-flex items-center gap-2 text-xs font-semibold text-navy-900 bg-slate-100 px-3 py-1.5 rounded-xl cursor-pointer">
+                <input type="checkbox" id="showAnswerKeyCheckbox" onchange="renderQuiz()" class="rounded text-brandOrange-500 focus:ring-0" />
+                <span>Show Answer Key</span>
+              </label>
+            </div>
+
+            <!-- Lock Screen -->
+            <div id="quizLockedOverlay" class="p-6 rounded-2xl bg-slateBg border border-slate-200 text-center space-y-3">
+              <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mx-auto">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <h3 class="font-display font-bold text-base text-navy-900">Certification Exam Locked Pending Trainer Approval</h3>
+              <p class="text-xs text-slate-600 max-w-md mx-auto">Click "Toggle Exam Lock" above or enter the Trainer Approval Passcode to unlock this assessment.</p>
+              <div class="flex items-center justify-center gap-2 max-w-xs mx-auto pt-1">
+                <input type="password" id="quizUnlockInput" placeholder="Approval Code" class="border border-slate-300 rounded-xl px-3 py-2 text-xs w-full focus:outline-none focus:border-brandOrange-500" />
+                <button type="button" onclick="unlockAssessmentWithCode('quiz')" class="px-4 py-2 rounded-xl bg-brandOrange-500 text-white text-xs font-bold shrink-0">Unlock</button>
+              </div>
+              <p id="quizUnlockError" class="hidden text-xs text-rose-600 font-semibold">Incorrect approval code.</p>
+            </div>
+
+            <!-- Unlocked Quiz Body -->
+            <div id="quizUnlockedBody" class="hidden space-y-4">
+              <div id="quizContainer" class="space-y-4"></div>
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100">
+                <button type="button" onclick="submitQuiz()" class="px-5 py-2.5 rounded-xl bg-brandOrange-500 hover:bg-brandOrange-600 text-white text-xs font-bold shadow">
+                  <i class="fa-solid fa-check-double mr-1.5"></i>Submit Certification Exam
+                </button>
+                <div id="quizScoreBanner" class="text-xs font-bold text-navy-900"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right 5 Cols: SOP Milestone Ordering Challenge -->
+          <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="px-2.5 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[11px] font-extrabold uppercase">Assessment 2</span>
+              <h2 class="font-display font-bold text-lg text-navy-900 mt-1">SOP Milestone Ordering Challenge</h2>
+              <p class="text-xs text-slate-500">Arrange the 6 critical GICF recruitment milestones into their proper chronological order.</p>
+            </div>
+
+            <!-- Lock Screen -->
+            <div id="orderingLockedOverlay" class="p-6 rounded-2xl bg-slateBg border border-slate-200 text-center space-y-3">
+              <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mx-auto">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <h3 class="font-display font-bold text-base text-navy-900">Milestone Challenge Locked</h3>
+              <p class="text-xs text-slate-600">Unlock via the Cohort Gatekeeper toggle or enter the Trainer Approval Code.</p>
+              <div class="flex items-center justify-center gap-2 max-w-xs mx-auto pt-1">
+                <input type="password" id="orderingUnlockInput" placeholder="Approval Code" class="border border-slate-300 rounded-xl px-3 py-2 text-xs w-full focus:outline-none focus:border-brandOrange-500" />
+                <button type="button" onclick="unlockAssessmentWithCode('ordering')" class="px-4 py-2 rounded-xl bg-brandOrange-500 text-white text-xs font-bold shrink-0">Unlock</button>
+              </div>
+              <p id="orderingUnlockError" class="hidden text-xs text-rose-600 font-semibold">Incorrect approval code.</p>
+            </div>
+
+            <!-- Unlocked Ordering Game -->
+            <div id="orderingUnlockedBody" class="hidden space-y-3">
+              <div id="orderingListContainer" class="space-y-2"></div>
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-100">
+                <button type="button" onclick="checkOrderingSequence()" class="px-4 py-2 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold">
+                  Verify Sequence
+                </button>
+                <button type="button" onclick="initOrderingGame()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-900 text-xs font-bold">
+                  Shuffle
+                </button>
+              </div>
+              <div id="orderingResultMsg" class="text-xs font-bold"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PANEL 4: TOOLS & EXECUTION HUB (UNIFIED FOR ALL USERS)              -->
+      <!-- =================================================================== -->
+      <section id="panel-role-hub" class="tab-panel hidden space-y-6">
+        <div id="roleHubContent"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- DECK LESSON MODAL                                                     -->
+  <!-- ===================================================================== -->
+  <div id="moduleLessonModal" class="hidden fixed inset-0 z-50 bg-navy-950/75 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-5 animate-slow-reveal">
+      <div class="flex items-start justify-between gap-3 border-b border-slate-100 pb-4">
+        <div>
+          <span id="modalDeckBadge" class="px-2.5 py-0.5 rounded bg-brandOrange-50 text-brandOrange-700 text-[11px] font-extrabold uppercase"></span>
+          <h3 id="modalDeckTitle" class="font-display font-extrabold text-xl text-navy-900 mt-1"></h3>
+        </div>
+        <button type="button" onclick="closeModuleModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-navy-900 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="modalDeckBody" class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed max-h-[60vh] overflow-y-auto pr-1"></div>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100">
+        <button type="button" id="modalCompleteToggleBtn" onclick="toggleModuleCompletionFromModal()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs">
+          Mark Deck as Completed
+        </button>
+        <button type="button" onclick="closeModuleModal()" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-900 text-xs font-bold">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- CANVA EMBED MODAL                                                     -->
+  <!-- ===================================================================== -->
+  <div id="canvaEmbedModal" class="hidden fixed inset-0 z-50 bg-navy-950/75 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-4 animate-slow-reveal">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 class="font-display font-bold text-lg text-navy-900"><i class="fa-solid fa-up-right-from-square text-brandOrange-500 mr-2"></i>Canva Presentation Embed Ready</h3>
+        <button type="button" onclick="closeCanvaModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-navy-900 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <p class="text-xs text-slate-600 leading-relaxed">
+        This SROCI Academy portal is responsive and self-contained for 16:9 widescreen presentation decks and Canva embeds. Copy the companion slide outline below if needed:
+      </p>
+      <textarea id="canvaOutlineBox" rows="6" readonly class="w-full text-xs font-mono bg-slateBg border border-slate-300 rounded-xl p-3 text-navy-900"># SROCI Academy & GICF Portal
+- Cover Page: Training Portal vs. GICF Academy
+- Standalone Training Portal: 5-Day Timeline & Decks 1–4
+- Process Workflow: 18-Node GICF Flowchart & Client ATS Playbooks
+- Tools & Execution Hub: SROCI Prescreening Summary Builder & Lead Intake Template</textarea>
+      <div class="flex justify-end gap-2">
+        <button type="button" onclick="copyCanvaMarkdown()" id="copyCanvaBtn" class="px-4 py-2 rounded-xl bg-brandOrange-500 text-white text-xs font-bold">Copy Outline</button>
+        <button type="button" onclick="closeCanvaModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-navy-900 text-xs font-bold">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT APPLICATION LOGIC                                          -->
+  <!-- ===================================================================== -->
+  <script>
+    // =========================================================================
+    // 1. CURRICULUM DECKS, TIMELINE, WORKFLOW & CLIENT DATA
+    // =========================================================================
+    const curriculumDecks = [
+      {
+        id: 'deck1',
+        badge: 'Deck 1 • Day 1',
+        title: 'Ramp Plan Anatomy & Stakeholder Governance',
+        duration: '45 Mins',
+        summary: 'Understand how client headcount forecasts translate into daily recruiter quotas, wave deadlines, and swimlane accountabilities.',
+        highlights: [
+          'Decoding client ramp plans, class start dates, and buffer targets',
+          '2-Hour Ramp Cascade SLA from Account Manager to Recruiter brief',
+          'Swimlane roles across Account Management, Team Leads, and Recruiters'
+        ],
+        slides: [
+          { title: 'Slide 1: What is a Client Ramp Plan?', content: 'A Client Ramp Plan defines exact headcount targets, wave start dates, site assignments, and minimum qualification criteria required by our BPO and enterprise partners.' },
+          { title: 'Slide 2: The 2-Hour Ramp Cascade SLA', content: 'Upon receiving a confirmed ramp forecast (Node P01), Account Managers and Team Leads translate targets into daily recruiter quotas and publish job briefs within 2 hours (Node P02).' },
+          { title: 'Slide 3: Funnel Math & Daily Quotas', content: 'To hit 100% ramp fill, recruiters maintain daily benchmarks across inbound lead capture, 7-minute voice pre-screens, and verified ATS endorsements.' }
+        ]
+      },
+      {
+        id: 'deck2',
+        badge: 'Deck 2 • Days 1–2',
+        title: 'Multi-Channel Sourcing & Lead Intake Capture',
+        duration: '60 Mins',
+        summary: 'Launch compliant job ads across social and job boards and capture clean candidate profiles using the Lead Intake Template.',
+        highlights: [
+          'High-converting ad copy for Facebook Groups, BossJob, JobStreet & Reddit',
+          '15-minute inbound lead engagement standard',
+          'Standardized Lead Intake Template capture & cooling-period verification'
+        ],
+        slides: [
+          { title: 'Slide 1: Multi-Channel Sourcing Channels', content: 'Deploy compliant, accurate job postings across Facebook Groups, BossJob, JobStreet, and Reddit using clear site, account type, and compensation highlights (Node P03).' },
+          { title: 'Slide 2: Speed-to-Lead Engagement', content: 'Respond to candidate inquiries within 15 minutes (Node P04) and screen for duplicate/cooling-period history prior to endorsement (Node P05).' },
+          { title: 'Slide 3: Lead Intake Template Standard', content: 'Capture Full Name, Mobile Number, Active Email, City, Education, and Total BPO Tenure using the standardized Lead Intake Template (Node P06).' }
+        ]
+      },
+      {
+        id: 'deck3',
+        badge: 'Deck 3 • Day 3',
+        title: 'Aim Fluent Coaching & Client ATS Compliance',
+        duration: '75 Mins',
+        summary: 'Conduct structured 7-minute phone pre-screens, score candidates on Aim Fluent, and encode accurately into client ATS platforms.',
+        highlights: [
+          'Structured 7-minute phone pre-screen checklist (Node P08)',
+          'Aim Fluent 1–5 vocal fluency scoring & Prescreening Summary builder',
+          'Mandatory SROCI agency tagging in Workday, ICIMS, and Taleo'
+        ],
+        slides: [
+          { title: 'Slide 1: The 7-Minute Phone Pre-Screen', content: 'Evaluate grammar, pronunciation, active listening, tenure stability, and shift/onsite amenability in a structured 7-minute voice call (Node P08).' },
+          { title: 'Slide 2: Aim Fluent Scoring & Summary', content: 'Rate candidates on the 1–5 Aim Fluent scale and generate the complete SROCI Prescreening Summary (Node P09).' },
+          { title: 'Slide 3: Zero-Error Client ATS Encoding', content: 'Encode verified candidate details into the client ATS with the mandatory SROCI agency tag and confirm online assessment delivery (Nodes P10–P12).' }
+        ]
+      },
+      {
+        id: 'deck4',
+        badge: 'Deck 4 • Days 4–5',
+        title: 'Show-Up Warm-Up & Zero-Waste Cross-Endorsement',
+        duration: '60 Mins',
+        summary: 'Maximize client interview attendance to 85%+ and re-profile non-selected candidates within 24 hours.',
+        highlights: [
+          '24-Hour and 2-Hour interview warm-up cadence (Nodes P13–P14)',
+          'Client HR & Operations interview preparation coaching',
+          'Node P18 Zero-Waste Cross-Endorsement within 24 hours'
+        ],
+        slides: [
+          { title: 'Slide 1: Driving 85%+ Interview Show-Up', content: 'Execute mandatory 24-hour and 2-hour warm-up check-ins with interview tips, technical checks, and site directions (Nodes P13–P14).' },
+          { title: 'Slide 2: Disposition Sync & Onboarding', content: 'Track client interview outcomes (Node P16) and guide hired candidates through contract signing and Day-1 attendance (Node P17).' },
+          { title: 'Slide 3: Zero-Waste Cross-Endorsement (Node P18)', content: 'Never discard a pre-screened candidate—re-match non-selected applicants to another qualifying SROCI client account within 24 hours.' }
+        ]
+      }
+    ];
+
+    const trainingTimeline = [
+      { day: 'Day 1', slot: 'Morning (9:00 AM – 12:00 PM)', title: 'Onboarding & Deck 1: Ramp Plan Anatomy', focus: 'SROCI mission, GICF 18-node overview, and decoding client ramp forecasts.' },
+      { day: 'Day 1', slot: 'Afternoon (1:00 PM – 5:00 PM)', title: 'Deck 2: Multi-Channel Sourcing Lab', focus: 'Drafting Facebook, BossJob, and Reddit recruitment ads with compliant hooks.' },
+      { day: 'Day 2', slot: 'Full Day (9:00 AM – 5:00 PM)', title: 'Lead Intake Capture & Live Sourcing Sprint', focus: 'Deploying ads, capturing leads via Lead Intake Template, and tracker hygiene.' },
+      { day: 'Day 3', slot: 'Full Day (9:00 AM – 5:00 PM)', title: 'Deck 3: Aim Fluent Coaching & ATS Encoding', focus: 'Live mock pre-screening calls, Aim Fluent scoring, and client ATS tagging drills.' },
+      { day: 'Day 4', slot: 'Full Day (9:00 AM – 5:00 PM)', title: 'Deck 4: Show-Up Warm-Up & Cross-Endorsement', focus: 'Client interview coaching, online assessment follow-ups, and Node P18 re-profiling.' },
+      { day: 'Day 5', slot: 'Full Day (9:00 AM – 5:00 PM)', title: 'Certification Exam, Revalida & Graduation', focus: 'Graded mock calls, Prescreening Summary audit, and 8-Question Certification Exam.' }
+    ];
+
+    // Client Process Matrix (Exact 9 Clients from SROCI_Client_ProcessV1)
+    const clientProcessMatrix = {
+      coforge: {
+        name: 'Coforge',
+        badge: 'IT & BPM Solutions',
+        atsChannel: 'Coforge Careers Portal & Direct Vendor Tracker',
+        agencyTag: 'Source: Agency / Vendor — SROCI',
+        assessmentRule: 'Online Communication & Analytical Assessment triggered upon HR screening; must be completed within 24 hours.',
+        interviewSetup: 'Virtual (MS Teams) — Initial HR Screen followed by Operations / Account Final Interview.',
+        sites: 'Metro Manila (Taguig / BGC & Quezon City)',
+        complianceNotes: 'Verify exact BPO tenure dates (month/year) and ensure candidate has not applied directly within the past 90 days.'
+      },
+      transcom: {
+        name: 'Transcom',
+        badge: 'Global CX & Voice/Non-Voice',
+        atsChannel: 'Transcom Workday / Recruiter Direct Endorsement Sheet',
+        agencyTag: 'Recruitment Agency: SROCI (Select under Agency Source)',
+        assessmentRule: 'Harver / Language & Cognitive Assessment link sent via email immediately after ATS encoding.',
+        interviewSetup: 'Virtual One-Day Process (Zoom/Phone) or Onsite Fast-Track Recruitment Hub.',
+        sites: 'Pasig (Tiendesitas), Mandaluyong, Iloilo, Bacolod, Davao',
+        complianceNotes: 'Confirm applicant email uniqueness in Workday prior to endorsement; complete SROCI Prescreening Summary in tracker.'
+      },
+      alorica: {
+        name: 'Alorica',
+        badge: 'High-Volume Voice & Healthcare/Telco',
+        atsChannel: 'Alorica ICIMS / Agency Referral Portal',
+        agencyTag: 'Vendor / Agency Partner: SROCI',
+        assessmentRule: 'Automated AI English & Typing Assessment completed online prior to Final Interview.',
+        interviewSetup: 'Virtual Zoom Recruitment Room or Onsite Walk-In Express Lane.',
+        sites: 'Cubao, Centris (QC), Makati, Pasay (MOA), Alabang, Clark, Lipa, Cebu, Davao',
+        complianceNotes: 'Must complete ICIMS profile using the candidate’s active personal email; attach Aim Fluent score and site preference.'
+      },
+      tp: {
+        name: 'Teleperformance (TP)',
+        badge: 'Multilingual & Omnichannel CX',
+        atsChannel: 'TP Taleo / Agency Endorsement Portal',
+        agencyTag: 'Agency Partner: SROCI',
+        assessmentRule: 'TP Online Language & Behavioral Assessment (must score B2+ for international voice accounts).',
+        interviewSetup: 'Virtual Webex/Zoom or Onsite Recruitment Center.',
+        sites: 'Ortigas, Makati, Aura (BGC), Fairview, Sucat, Antipolo, Clark, Baguio, Cebu, Davao',
+        complianceNotes: 'Double-check 6-month re-application cooling period and verify government ID readiness.'
+      },
+      everise: {
+        name: 'Everise',
+        badge: 'Healthcare & Customer Experience',
+        atsChannel: 'Everise ICIMS / Vendor Submission Form',
+        agencyTag: 'Agency Source: SROCI',
+        assessmentRule: 'Online Communication & Healthcare Scenario Assessment (desktop/laptop with headset required).',
+        interviewSetup: '100% Virtual Zoom Screening + Account Operations Final Interview.',
+        sites: 'BGC (Taguig), Ortigas, Clark, Hybrid / WFH (Select Programs)',
+        complianceNotes: 'For hybrid/WFH programs, verify internet speed (at least 25 Mbps wired) and quiet workspace during Node P09.'
+      },
+      converge: {
+        name: 'Converge',
+        badge: 'Fiber Broadband & Telco Support',
+        atsChannel: 'Converge HR Endorsement Sheet & Direct ATS',
+        agencyTag: 'Endorsed By: SROCI Recruitment',
+        assessmentRule: 'Basic Troubleshooting & Customer Service Readiness Check during HR interview.',
+        interviewSetup: 'Onsite or Virtual MS Teams Interview with HR & Operations.',
+        sites: 'Pasig (Reliance / Ortigas), Pampanga (Clark / Angeles)',
+        complianceNotes: 'Highlight any prior telco, technical support, or billing resolution experience in the Prescreening Summary.'
+      },
+      alldigitech: {
+        name: 'All Digitech',
+        badge: 'Digital Operations & Back-Office',
+        atsChannel: 'All Digitech Direct Endorsement Tracker',
+        agencyTag: 'Partner Agency: SROCI',
+        assessmentRule: 'Typing Speed (35+ WPM) & Written Comprehension Test.',
+        interviewSetup: 'Virtual Google Meet / Zoom Screening followed by Client Final Interview.',
+        sites: 'Metro Manila (Makati / Ortigas / QC)',
+        complianceNotes: 'Ensure updated resume PDF is attached alongside the SROCI Prescreening Summary.'
+      },
+      wellsfargo: {
+        name: 'Wells Fargo',
+        badge: 'Global Banking & Financial Services',
+        atsChannel: 'Wells Fargo Workday / Enterprise Vendor Portal',
+        agencyTag: 'Staffing Vendor: SROCI',
+        assessmentRule: 'Versant / Financial Operations Assessment + Strict Background & Credit Check.',
+        interviewSetup: 'Structured Behavioral Panel Interview (Virtual/Onsite).',
+        sites: 'McKinley Hill (Taguig / BGC)',
+        complianceNotes: 'Strict educational attainment & employment history verification (no unexplained gaps; complete COE/TOR readiness).'
+      },
+      inspiro: {
+        name: 'Inspiro',
+        badge: 'Customer Management & Travel/Retail CX',
+        atsChannel: 'Inspiro ATS & Agency Endorsement Log',
+        agencyTag: 'Agency Partner: SROCI',
+        assessmentRule: 'Online Communication & Customer Empathy Assessment.',
+        interviewSetup: 'Virtual Phone/Zoom Interview or Onsite Recruitment Hub.',
+        sites: 'Makati, Quezon City, Mandaluyong, Bulacan, Iloilo, Davao',
+        complianceNotes: 'Verify shifting schedule and onsite amenability; log preferred site clearly in tracker.'
+      }
+    };
+
+    // 18-Node Process Workflow Data
+    const workflowNodes = [
+      { id: 'P01', stage: 'S1', stageName: '1. Ramp & Posting', type: 'action', owner: 'Account Manager', title: 'Client Ramp Receipt', desc: 'Receive confirmed headcount forecast, wave start dates, site assignments, and account qualification matrix from client.' },
+      { id: 'P02', stage: 'S1', stageName: '1. Ramp & Posting', type: 'action', owner: 'Team Lead', title: '2-Hour Ramp Cascade', desc: 'Translate ramp targets into daily recruiter quotas and publish approved job briefs within 2 hours.' },
+      { id: 'P03', stage: 'S1', stageName: '1. Ramp & Posting', type: 'action', owner: 'Recruiter', title: 'Multi-Channel Job Launch', desc: 'Publish compliant recruitment ads on Facebook Groups, BossJob, JobStreet, and Reddit.' },
+      { id: 'P04', stage: 'S2', stageName: '2. Lead Capture', type: 'action', owner: 'Recruiter', title: 'Inbound Lead Engagement', desc: 'Respond to applicant inquiries within 15 minutes using warm, consultative messaging.' },
+      { id: 'P05', stage: 'S2', stageName: '2. Lead Capture', type: 'action', owner: 'Recruiter', title: 'Duplicate & Cooling Check', desc: 'Verify candidate has not been endorsed to the target client within the cooling-off period.' },
+      { id: 'P06', stage: 'S2', stageName: '2. Lead Capture', type: 'action', owner: 'Recruiter', title: 'Lead Intake Template Capture', desc: 'Collect full name, mobile number, active email, city, education, and BPO tenure.' },
+      { id: 'P07', stage: 'S2', stageName: '2. Lead Capture', type: 'gate', owner: 'Recruiter', title: 'Gate: Basic Qualification Check', desc: 'Decision Gate: Does the candidate meet minimum education, location, and tenure requirements? If No, route to Node P18 Cross-Endorsement.' },
+      { id: 'P08', stage: 'S3', stageName: '3. Pre-Screen & ATS', type: 'action', owner: 'Recruiter', title: '7-Minute Phone Pre-Screen', desc: 'Conduct structured voice interview evaluating communication clarity, stability, and shift amenability.' },
+      { id: 'P09', stage: 'S3', stageName: '3. Pre-Screen & ATS', type: 'gate', owner: 'Recruiter', title: 'Gate: Aim Fluent & Summary', desc: 'Decision Gate: Score candidate on Aim Fluent (1–5) and generate the SROCI Prescreening Summary.' },
+      { id: 'P10', stage: 'S3', stageName: '3. Pre-Screen & ATS', type: 'gate', owner: 'Recruiter', title: 'Gate: Client ATS Encoding', desc: 'Decision Gate: Encode candidate into client ATS (Workday/ICIMS/Taleo) with mandatory SROCI agency tag.' },
+      { id: 'P11', stage: 'S3', stageName: '3. Pre-Screen & ATS', type: 'action', owner: 'Recruiter', title: 'Online Assessment Trigger', desc: 'Ensure candidate receives and completes Harver, Berlitz, or client-specific online assessments.' },
+      { id: 'P12', stage: 'S3', stageName: '3. Pre-Screen & ATS', type: 'action', owner: 'Recruiter', title: 'Shared Tracker Endorsement', desc: 'Log verified ATS ID, Prescreening Summary, and interview slot in the Client Endorsement Tracker.' },
+      { id: 'P13', stage: 'S4', stageName: '4. Client Screening', type: 'action', owner: 'Recruiter', title: '24-Hour Interview Warm-Up', desc: 'Send interview confirmation, site directions/meeting link, and account-specific coaching tips.' },
+      { id: 'P14', stage: 'S4', stageName: '4. Client Screening', type: 'action', owner: 'Recruiter', title: '2-Hour Show-Up Check-In', desc: 'Confirm candidate attendance readiness 2 hours prior to client interview to sustain 85%+ show-up rate.' },
+      { id: 'P15', stage: 'S4', stageName: '4. Client Screening', type: 'action', owner: 'Client HR / Ops', title: 'Client HR & Final Interview', desc: 'Candidate completes client HR screening and operations/account final interview.' },
+      { id: 'P16', stage: 'S5', stageName: '5. Results & Cross-Endorse', type: 'action', owner: 'Account Manager', title: 'Client Disposition Sync', desc: 'Retrieve official interview outcomes (Hired, Pending Final, or Not Selected) from client HR.' },
+      { id: 'P17', stage: 'S5', stageName: '5. Results & Cross-Endorse', type: 'action', owner: 'Recruiter', title: 'Job Offer & Day-1 Onboarding', desc: 'Assist hired candidates with contract signing, PEME/requirements, and Day-1 attendance confirmation.' },
+      { id: 'P18', stage: 'S5', stageName: '5. Results & Cross-Endorse', type: 'gate', owner: 'Recruiter', title: 'Gate: Zero-Waste Cross-Endorse', desc: 'Decision Gate: Re-profile non-selected candidates to an alternative matching client account within 24 hours.' }
+    ];
+
+    const simulatorScenarios = [
+      {
+        step: 1,
+        question: 'Scenario 1 (Node P07): A candidate applies for a Healthcare Voice role requiring 6 months BPO experience, but they are a fresh graduate with strong Aim Fluent (4/5) communication skills. What is the compliant GICF action?',
+        options: [
+          { text: 'Encode them anyway and tell them to say they have 6 months experience.', correct: false, feedback: 'Incorrect. Falsifying tenure violates SROCI integrity and client compliance.' },
+          { text: 'Route to Node P18 Cross-Endorsement and match them to an entry-level/fresh-grad friendly account (e.g., Alorica or TP).', correct: true, feedback: 'Correct! Zero-waste cross-endorsement protects client quality while placing the candidate in a qualified role.' }
+        ]
+      },
+      {
+        step: 2,
+        question: 'Scenario 2 (Node P10): You are endorsing a candidate to Transcom. When encoding in Workday, their email shows an existing profile from 8 months ago. What should you do?',
+        options: [
+          { text: 'Verify the 6-month cooling period has passed, use their valid profile/endorsement channel with the SROCI agency tag, and log it in the tracker.', correct: true, feedback: 'Correct! Always respect cooling periods and ensure proper SROCI agency attribution.' },
+          { text: 'Create a fake email address for the candidate without telling them.', correct: false, feedback: 'Incorrect. Never create unauthorized email addresses; candidates will miss their Harver assessment links.' }
+        ]
+      }
+    ];
+
+    const quizQuestions = [
+      {
+        q: '1. What is the maximum SLA time for cascading a confirmed Client Ramp Plan into active recruiter job postings (Nodes P01–P02)?',
+        options: ['24 Hours', '2 Hours', '48 Hours', '12 Hours'],
+        answer: 1,
+        rationale: 'The 2-Hour Ramp Cascade SLA ensures immediate speed-to-market on high-priority waves.'
+      },
+      {
+        q: '2. Which tool is used during Node P06 to standardize candidate data collection before calling?',
+        options: ['Lead Intake Template', 'Offer Letter Generator', 'Payroll Matrix', 'Exit Clearance Form'],
+        answer: 0,
+        rationale: 'The Lead Intake Template captures full name, mobile, active email, location, education, and BPO tenure.'
+      },
+      {
+        q: '3. What Aim Fluent communication rating indicates a candidate is Voice-Ready with good fluency and clarity?',
+        options: ['1 / 5', '2 / 5', '4 / 5', '0 / 5'],
+        answer: 2,
+        rationale: 'A 4/5 rating confirms strong fluency and clarity suitable for voice accounts.'
+      },
+      {
+        q: '4. What happens at Node P18 when a pre-screened candidate is not selected by their first-choice client?',
+        options: ['Delete their record permanently', 'Cross-endorse them to another matching client account within 24 hours', 'Wait 6 months before contacting them', 'Ask them to pay a re-application fee'],
+        answer: 1,
+        rationale: 'Node P18 enforces a Zero-Waste Cross-Endorsement pipeline.'
+      },
+      {
+        q: '5. Which nodes directly drive SROCI’s 85%+ Client Interview Show-Up Rate target?',
+        options: ['Nodes P01–P02', 'Nodes P13–P14 (24-Hour & 2-Hour Warm-Up)', 'Nodes P16–P17', 'Node P03 only'],
+        answer: 1,
+        rationale: 'Structured 24-hour and 2-hour warm-up touchpoints dramatically reduce interview no-shows.'
+      },
+      {
+        q: '6. Why must recruiters verify a candidate’s active personal email before ATS encoding (Node P10)?',
+        options: ['To send promotional spam', 'So automated online assessments (Harver/Berlitz/ICIMS) reach the candidate immediately', 'It is optional', 'Only for management roles'],
+        answer: 1,
+        rationale: 'Client ATS platforms send assessment links directly to the encoded email address.'
+      },
+      {
+        q: '7. Which of the following is an official client included in the SROCI Client Process Matrix?',
+        options: ['Coforge, Transcom, Alorica, Teleperformance, Everise, Converge, All Digitech, Wells Fargo, Inspiro', 'Only local retail stores', 'Manufacturing plants only', 'None of the above'],
+        answer: 0,
+        rationale: 'All nine accounts are part of the official SROCI_Client_ProcessV1 playbook.'
+      },
+      {
+        q: '8. What must accompany every candidate endorsement in the Shared Client Tracker?',
+        options: ['Only their first name', 'The standardized SROCI Prescreening Summary & verified ATS status', 'A blank row', 'Unverified social media screenshots'],
+        answer: 1,
+        rationale: 'The SROCI Prescreening Summary provides complete qualification visibility for Client HR.'
+      }
+    ];
+
+    const canonicalMilestones = [
+      { id: 'm1', text: 'Node P01–P02: Receive Client Ramp Plan & execute 2-Hour Ramp Cascade' },
+      { id: 'm2', text: 'Node P03–P06: Launch multi-channel ads & capture Lead Intake Template' },
+      { id: 'm3', text: 'Node P08–P09: Conduct 7-minute phone pre-screen & Aim Fluent scoring' },
+      { id: 'm4', text: 'Node P10–P12: Encode in Client ATS with SROCI tag & log Prescreening Summary' },
+      { id: 'm5', text: 'Node P13–P15: Execute 24h/2h show-up warm-up & complete Client Interview' },
+      { id: 'm6', text: 'Node P16–P18: Sync final results, support Day-1 onboarding, or Cross-Endorse' }
+    ];
+
+    // =========================================================================
+    // 2. STATE & ROLE-BASED GOVERNANCE
+    // =========================================================================
+    let currentRole = 'recruiter';
+    let completedModules = new Set();
+    let activeModalDeckId = null;
+    let activeWorkflowPhase = 'all';
+    let selectedWorkflowNodeId = 'P01';
+    let simStepIndex = 0;
+    let currentOrderingItems = [];
+
+    const TRAINER_APPROVAL_CODE = 'SROCI-APP26';
+
+    let assessmentApprovals = {
+      quiz: false,
+      ordering: false
+    };
+
+    let prescreeningSentConfirmed = false;
+    let prescreeningSentTime = '';
+
+    const ROLE_PASSWORDS = {
+      recruiter: 'SROCI-REC26',
+      trainer: 'SROCI-TRN26',
+      manager: 'SROCI-MGT26'
+    };
+
+    let signedInUser = null;
+
+    function toggleSignInBatchField() {
+      const roleVal = document.getElementById('signInRole')?.value || 'recruiter';
+      const batchWrap = document.getElementById('signInBatchContainer');
+      const batchInput = document.getElementById('signInBatch');
+      if (!batchWrap || !batchInput) return;
+
+      if (roleVal === 'recruiter') {
+        batchWrap.classList.remove('hidden');
+        batchInput.required = true;
+      } else {
+        batchWrap.classList.add('hidden');
+        batchInput.required = false;
+        batchInput.value = '';
+      }
+    }
+
+    function handlePortalSignIn(event) {
+      event.preventDefault();
+      const name = (document.getElementById('signInName')?.value || '').trim();
+      const role = document.getElementById('signInRole')?.value || 'recruiter';
+      const batch = (document.getElementById('signInBatch')?.value || '').trim();
+      const password = (document.getElementById('signInPassword')?.value || '').trim();
+      const errBox = document.getElementById('signInErrorBox');
+
+      if (!name) {
+        if (errBox) {
+          errBox.textContent = 'Please enter your full name.';
+          errBox.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (role === 'recruiter' && !batch) {
+        if (errBox) {
+          errBox.textContent = 'Please enter your Batch Number.';
+          errBox.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (password !== ROLE_PASSWORDS[role]) {
+        if (errBox) {
+          errBox.textContent = 'Invalid password for the selected role.';
+          errBox.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (errBox) errBox.classList.add('hidden');
+
+      signedInUser = { name, role, batch };
+      const coverBadge = document.getElementById('coverUserBadge');
+      if (coverBadge) {
+        const roleLabel = role === 'recruiter' ? 'Recruiter' : role === 'trainer' ? 'Trainer' : 'Manager';
+        const batchSuffix = role === 'recruiter' && batch ? ` • ${batch}` : '';
+        coverBadge.innerHTML = `<i class="fa-solid fa-user-check text-brandOrange-500 mr-1.5"></i>${name} (${roleLabel}${batchSuffix})`;
+      }
+
+      const mappedPortalRole = role === 'manager' ? 'management' : role;
+      applyRoleChange(mappedPortalRole);
+
+      document.getElementById('loginGatePage')?.classList.add('hidden');
+      document.getElementById('coverLandingPage')?.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function signOutToGate() {
+      signedInUser = null;
+      const pwdInput = document.getElementById('signInPassword');
+      if (pwdInput) pwdInput.value = '';
+      document.getElementById('mainAppShell')?.classList.add('hidden');
+      document.getElementById('coverLandingPage')?.classList.add('hidden');
+      document.getElementById('loginGatePage')?.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // =========================================================================
+    // 3. PORTAL NAVIGATION & ROLE GOVERNANCE
+    // =========================================================================
+    function enterPortal(mode) {
+      document.getElementById('coverLandingPage').classList.add('hidden');
+      document.getElementById('mainAppShell').classList.remove('hidden');
+
+      const gicfNav = document.getElementById('gicfNavTabs');
+      const gicfBanner = document.getElementById('gicfRoleBanner');
+      const gicfRoleBox = document.getElementById('gicfRoleSwitcherBox');
+      const subtitle = document.getElementById('headerPortalSubtitle');
+
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+
+      if (mode === 'training') {
+        // Standalone Training Portal: hide GICF navigation bar & keep strictly inside Training Portal
+        gicfNav.classList.add('hidden');
+        gicfBanner.classList.add('hidden');
+        gicfRoleBox.classList.add('hidden');
+        subtitle.textContent = 'Training Portal • 5-Day Timeline & Interactive Decks 1–4';
+        document.getElementById('panel-training-portal').classList.remove('hidden');
+      } else {
+        gicfNav.classList.remove('hidden');
+        gicfBanner.classList.remove('hidden');
+        gicfRoleBox.classList.remove('hidden');
+        subtitle.textContent = 'GICF Academy • Workflow, Client Matrix & Assessments';
+        switchTab('overview');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function returnToCover() {
+      document.getElementById('mainAppShell').classList.add('hidden');
+      document.getElementById('coverLandingPage').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function revealFullTarget(elementOrId) {
+      const el = typeof elementOrId === 'string' ? document.getElementById(elementOrId) : elementOrId;
+      if (!el) return;
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 120);
+    }
+
+    function switchTab(tabKey) {
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.add('hidden'));
+      const targetPanel = document.getElementById(`panel-${tabKey}`);
+      if (targetPanel) {
+        targetPanel.classList.remove('hidden');
+      }
+
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+        btn.className = 'nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition text-slate-300 hover:bg-navy-800 hover:text-white';
+      });
+      const activeBtn = document.getElementById(`tab-${tabKey}`);
+      if (activeBtn) {
+        activeBtn.className = 'nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition bg-brandOrange-500 text-white shadow';
+      }
+
+      if (tabKey === 'role-hub') {
+        renderRoleGovernance();
+        syncPrescreeningSentVisuals();
+        generatePrescreeningSummary();
+        updateMessengerTemplate();
+      }
+
+      revealFullTarget(targetPanel);
+    }
+
+    function handleRoleSwitchRequest(newRole) {
+      applyRoleChange(newRole);
+    }
+
+    function applyRoleChange(role) {
+      currentRole = role;
+      const selector = document.getElementById('roleSelector');
+      if (selector) selector.value = role;
+
+      const badge = document.getElementById('roleBadge');
+      const desc = document.getElementById('roleDescription');
+      const tabLabel = document.getElementById('roleHubTabLabel');
+      const trainerKeyBox = document.getElementById('trainerAnswerToggleBox');
+      const trainerAssessCard = document.getElementById('assessTrainerControlCard');
+
+      if (role === 'recruiter') {
+        if (badge) badge.innerHTML = '<i class="fa-solid fa-users mr-1.5 text-brandOrange-500"></i>Active View: Agents / Recruiters';
+        if (desc) desc.textContent = 'Focus: Sourcing channels, Lead Intake Template, SROCI Prescreening Summary & ATS compliance.';
+        if (tabLabel) tabLabel.textContent = 'Tools & Execution Hub';
+        if (trainerKeyBox) trainerKeyBox.classList.add('hidden');
+        if (trainerAssessCard) trainerAssessCard.classList.add('hidden');
+      } else if (role === 'trainer') {
+        if (badge) badge.innerHTML = '<i class="fa-solid fa-chalkboard-user mr-1.5 text-brandOrange-500"></i>Active View: Trainers';
+        if (desc) desc.textContent = 'Focus: 5-day cohort facilitation, mock call coaching, and assessment approval gatekeeping.';
+        if (tabLabel) tabLabel.textContent = 'Trainer Facilitation Console';
+        if (trainerKeyBox) trainerKeyBox.classList.remove('hidden');
+        if (trainerAssessCard) trainerAssessCard.classList.remove('hidden');
+      } else {
+        if (badge) badge.innerHTML = '<i class="fa-solid fa-chart-line mr-1.5 text-brandOrange-500"></i>Active View: Management';
+        if (desc) desc.textContent = 'Focus: Ramp fulfillment SLAs, conversion benchmarks, and cross-endorsement pipeline recovery.';
+        if (tabLabel) tabLabel.textContent = 'Management SLA & Analytics';
+        if (trainerKeyBox) trainerKeyBox.classList.add('hidden');
+        if (trainerAssessCard) trainerAssessCard.classList.add('hidden');
+      }
+
+      renderModules();
+      renderQuiz();
+      renderRoleGovernance();
+    }
+
+    // =========================================================================
+    // 4. STANDALONE TRAINING PORTAL (TIMELINE & SLIDE DECK EXPLORER)
+    // =========================================================================
+    function renderDiscussionTimeline(dayFilter = 'all') {
+      const container = document.getElementById('discussionTimelineContainer');
+      if (!container) return;
+
+      document.querySelectorAll('.day-filter-btn').forEach(btn => {
+        const isMatch = btn.getAttribute('data-day') === dayFilter;
+        btn.className = isMatch
+          ? 'day-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-navy-900 text-white shadow-xs'
+          : 'day-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200';
+      });
+
+      const items = dayFilter === 'all'
+        ? trainingTimeline
+        : trainingTimeline.filter(t => t.day === dayFilter);
+
+      container.innerHTML = items.map(item => `
+        <div class="bg-slateBg rounded-2xl p-4 border border-slate-200 space-y-2 animate-slow-reveal">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-lg bg-brandOrange-500 text-white text-[11px] font-extrabold">${item.day}</span>
+            <span class="text-[11px] font-semibold text-slate-500">${item.slot}</span>
+          </div>
+          <h3 class="font-display font-bold text-sm text-navy-900">${item.title}</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">${item.focus}</p>
+        </div>
+      `).join('');
+
+      if (dayFilter !== 'all') {
+        revealFullTarget(container);
+      }
+    }
+
+    let activePortalDeckId = 'deck1';
+    let activePortalSlideIdx = 0;
+
+    function selectPortalDeck(deckId) {
+      activePortalDeckId = deckId;
+      activePortalSlideIdx = 0;
+
+      document.querySelectorAll('.deck-select-btn').forEach(btn => {
+        const isMatch = btn.getAttribute('data-deck') === deckId;
+        btn.className = isMatch
+          ? 'deck-select-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-brandOrange-500 text-white shadow-xs'
+          : 'deck-select-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200';
+      });
+
+      renderPortalSlide();
+      revealFullTarget('deckExplorerSection');
+    }
+
+    function setPresentationSlide(idx) {
+      const deck = curriculumDecks.find(d => d.id === activePortalDeckId) || curriculumDecks[0];
+      activePortalSlideIdx = Math.max(0, Math.min(deck.slides.length - 1, idx));
+      renderPortalSlide();
+    }
+
+    function renderPortalSlide() {
+      const viewer = document.getElementById('portalSlideViewer');
+      if (!viewer) return;
+      const deck = curriculumDecks.find(d => d.id === activePortalDeckId) || curriculumDecks[0];
+      const slide = deck.slides[activePortalSlideIdx];
+
+      viewer.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+          <span class="text-xs font-bold text-brandOrange-500 uppercase tracking-wider">${deck.badge} • ${deck.title}</span>
+          <span class="text-xs text-slate-400">Slide ${activePortalSlideIdx + 1} of ${deck.slides.length}</span>
+        </div>
+        <div class="py-4 space-y-3 animate-slow-reveal">
+          <h3 class="font-display font-extrabold text-xl sm:text-2xl text-white">${slide.title}</h3>
+          <p class="text-sm sm:text-base text-slate-200 leading-relaxed">${slide.content}</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-white/10">
+          <button type="button" onclick="setPresentationSlide(${activePortalSlideIdx - 1})" ${activePortalSlideIdx === 0 ? 'disabled' : ''} class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 disabled:opacity-40 text-xs font-bold">
+            <i class="fa-solid fa-arrow-left mr-1.5"></i>Previous Slide
+          </button>
+          <div class="flex gap-1.5">
+            ${deck.slides.map((_, i) => `
+              <button type="button" onclick="setPresentationSlide(${i})" class="w-2.5 h-2.5 rounded-full ${i === activePortalSlideIdx ? 'bg-brandOrange-500' : 'bg-white/25'}"></button>
+            `).join('')}
+          </div>
+          <button type="button" onclick="setPresentationSlide(${activePortalSlideIdx + 1})" ${activePortalSlideIdx === deck.slides.length - 1 ? 'disabled' : ''} class="px-4 py-2 rounded-xl bg-brandOrange-500 hover:bg-brandOrange-600 disabled:opacity-40 text-xs font-bold">
+            Next Slide<i class="fa-solid fa-arrow-right ml-1.5"></i>
+          </button>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 5. GICF OVERVIEW DECK CARDS & MODAL
+    // =========================================================================
+    function renderModules() {
+      const grid = document.getElementById('moduleCardsGrid');
+      if (!grid) return;
+
+      grid.innerHTML = curriculumDecks.map(deck => {
+        const isDone = completedModules.has(deck.id);
+        return `
+          <div class="module-card bg-white rounded-2xl p-6 border ${isDone ? 'border-emerald-400' : 'border-slate-200'} shadow-sm flex flex-col justify-between space-y-4">
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded bg-brandOrange-50 text-brandOrange-700 text-[11px] font-extrabold uppercase">${deck.badge}</span>
+                <span class="text-xs font-bold ${isDone ? 'text-emerald-600' : 'text-slate-400'}">
+                  ${isDone ? '<i class="fa-solid fa-circle-check mr-1"></i>Completed' : deck.duration}
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-navy-900">${deck.title}</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">${deck.summary}</p>
+              <ul class="space-y-1.5 pt-1 text-xs text-slate-700">
+                ${deck.highlights.map(h => `<li class="flex items-start gap-2"><i class="fa-solid fa-check text-brandOrange-500 mt-0.5"></i><span>${h}</span></li>`).join('')}
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <button type="button" onclick="openModuleModal('${deck.id}')" class="px-4 py-2 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold">
+                Open Deck & Notes
+              </button>
+              <button type="button" onclick="quickToggleModule('${deck.id}')" class="text-xs font-bold ${isDone ? 'text-emerald-600' : 'text-slate-500 hover:text-navy-900'}">
+                ${isDone ? 'Completed ✓' : 'Mark Complete'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      updateOverallProgress();
+    }
+
+    function quickToggleModule(deckId) {
+      if (completedModules.has(deckId)) {
+        completedModules.delete(deckId);
+      } else {
+        completedModules.add(deckId);
+      }
+      renderModules();
+    }
+
+    function openModuleModal(deckId) {
+      activeModalDeckId = deckId;
+      const deck = curriculumDecks.find(d => d.id === deckId);
+      if (!deck) return;
+
+      document.getElementById('modalDeckBadge').textContent = deck.badge;
+      document.getElementById('modalDeckTitle').textContent = deck.title;
+      document.getElementById('modalDeckBody').innerHTML = deck.slides.map(s => `
+        <div class="p-4 rounded-xl bg-slateBg border border-slate-200 space-y-1">
+          <div class="font-display font-bold text-navy-900">${s.title}</div>
+          <p class="text-xs text-slate-600">${s.content}</p>
+        </div>
+      `).join('');
+
+      const isDone = completedModules.has(deckId);
+      const btn = document.getElementById('modalCompleteToggleBtn');
+      btn.textContent = isDone ? 'Completed ✓ (Click to Unmark)' : 'Mark Deck as Completed';
+      btn.className = isDone
+        ? 'px-4 py-2.5 rounded-xl bg-slate-700 text-white text-xs font-bold'
+        : 'px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs';
+
+      document.getElementById('moduleLessonModal').classList.remove('hidden');
+    }
+
+    function closeModuleModal() {
+      document.getElementById('moduleLessonModal').classList.add('hidden');
+    }
+
+    function toggleModuleCompletionFromModal() {
+      if (!activeModalDeckId) return;
+      if (completedModules.has(activeModalDeckId)) {
+        completedModules.delete(activeModalDeckId);
+      } else {
+        completedModules.add(activeModalDeckId);
+      }
+      renderModules();
+      openModuleModal(activeModalDeckId);
+    }
+
+    function updateOverallProgress() {
+      const pct = Math.round((completedModules.size / curriculumDecks.length) * 100);
+      const pctEl = document.getElementById('progressPercentText');
+      const barEl = document.getElementById('progressBarFill');
+      if (pctEl) pctEl.textContent = `${pct}%`;
+      if (barEl) barEl.style.width = `${pct}%`;
+    }
+
+    // =========================================================================
+    // 6. PROCESS WORKFLOW FLOWCHART & CLIENT PLAYBOOK MATRIX
+    // =========================================================================
+    function selectClientProcess(clientKey) {
+      const data = clientProcessMatrix[clientKey] || clientProcessMatrix.coforge;
+
+      document.querySelectorAll('.client-pill-btn').forEach(btn => {
+        const isMatch = btn.getAttribute('data-client') === clientKey;
+        btn.className = isMatch
+          ? 'client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-navy-900 text-white shadow-xs'
+          : 'client-pill-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200';
+      });
+
+      const box = document.getElementById('clientProcessDetailBox');
+      if (!box) return;
+      box.innerHTML = `
+        <div class="space-y-4 animate-slow-reveal">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3">
+            <div>
+              <h3 class="font-display font-extrabold text-lg text-navy-900">${data.name}</h3>
+              <span class="text-xs text-slate-500">${data.badge}</span>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-brandOrange-50 text-brandOrange-700 border border-brandOrange-500/25 text-xs font-bold">
+              ${data.agencyTag}
+            </span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200">
+              <div class="font-bold text-navy-900 mb-1"><i class="fa-solid fa-server text-brandOrange-500 mr-1.5"></i>ATS & Endorsement Channel</div>
+              <p class="text-slate-600">${data.atsChannel}</p>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200">
+              <div class="font-bold text-navy-900 mb-1"><i class="fa-solid fa-laptop-file text-indigo-600 mr-1.5"></i>Online Assessment Rule</div>
+              <p class="text-slate-600">${data.assessmentRule}</p>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200">
+              <div class="font-bold text-navy-900 mb-1"><i class="fa-solid fa-video text-emerald-600 mr-1.5"></i>Interview Setup</div>
+              <p class="text-slate-600">${data.interviewSetup}</p>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200 md:col-span-2">
+              <div class="font-bold text-navy-900 mb-1"><i class="fa-solid fa-location-dot text-rose-600 mr-1.5"></i>Active Hiring Sites</div>
+              <p class="text-slate-600">${data.sites}</p>
+            </div>
+            <div class="bg-amber-50 p-3.5 rounded-xl border border-amber-200">
+              <div class="font-bold text-amber-950 mb-1"><i class="fa-solid fa-shield-halved text-amber-600 mr-1.5"></i>Compliance Guardrail</div>
+              <p class="text-amber-900">${data.complianceNotes}</p>
+            </div>
+          </div>
+        </div>
+      `;
+
+      revealFullTarget('clientMatrixCard');
+    }
+
+    function filterWorkflowPhase(stageKey) {
+      activeWorkflowPhase = stageKey;
+
+      document.querySelectorAll('.stage-filter-btn').forEach(btn => {
+        const isMatch = btn.getAttribute('data-phase') === stageKey;
+        btn.className = isMatch
+          ? 'stage-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-brandOrange-500 text-white shadow-xs'
+          : 'stage-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-navy-900 hover:bg-slate-200';
+      });
+
+      const matchingNodes = stageKey === 'all'
+        ? workflowNodes
+        : workflowNodes.filter(n => n.stage === stageKey);
+
+      if (matchingNodes.length > 0) {
+        selectedWorkflowNodeId = matchingNodes[0].id;
+      }
+
+      renderWorkflowPhases();
+      revealFullTarget('workflowFlowchartSection');
+    }
+
+    function selectWorkflowStep(nodeId) {
+      selectedWorkflowNodeId = nodeId;
+      renderWorkflowPhases();
+      revealFullTarget('workflowNodeInspector');
+    }
+
+    function renderWorkflowPhases() {
+      const diagram = document.getElementById('workflowDiagramContainer');
+      const inspector = document.getElementById('workflowNodeInspector');
+      if (!diagram || !inspector) return;
+
+      const stageGroups = [
+        { key: 'S1', label: 'Stage 1: Ramp Intake & Multi-Channel Posting (P01–P03)' },
+        { key: 'S2', label: 'Stage 2: Inbound Lead Capture & Qualification Gate (P04–P07)' },
+        { key: 'S3', label: 'Stage 3: Phone Pre-Screen, Aim Fluent & Client ATS (P08–P12)' },
+        { key: 'S4', label: 'Stage 4: Show-Up Warm-Up & Client Screening (P13–P15)' },
+        { key: 'S5', label: 'Stage 5: Disposition Sync, Onboarding & Cross-Endorsement (P16–P18)' }
+      ].filter(g => activeWorkflowPhase === 'all' || g.key === activeWorkflowPhase);
+
+      diagram.innerHTML = stageGroups.map(group => {
+        const nodes = workflowNodes.filter(n => n.stage === group.key);
+        return `
+          <div class="bg-slateBg rounded-2xl p-4 border border-slate-200 space-y-3 animate-slow-reveal">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-display font-extrabold text-navy-900">${group.label}</span>
+              <span class="text-[11px] font-semibold text-slate-500">${nodes.length} Nodes</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+              ${nodes.map((node, idx) => {
+                const isSelected = node.id === selectedWorkflowNodeId;
+                const isGate = node.type === 'gate';
+                const connectorClass = idx < nodes.length - 1 ? 'flowchart-connector' : '';
+                return `
+                  <button
+                    type="button"
+                    onclick="selectWorkflowStep('${node.id}')"
+                    class="wf-node-btn ${connectorClass} text-left p-3.5 rounded-2xl border-2 ${
+                      isSelected
+                        ? 'bg-navy-900 text-white border-brandOrange-500 shadow-lg'
+                        : isGate
+                          ? 'bg-amber-50/90 text-navy-900 border-amber-300 hover:border-brandOrange-500'
+                          : 'bg-white text-navy-900 border-slate-200 hover:border-brandOrange-500'
+                    }"
+                  >
+                    <div class="flex items-center justify-between gap-1 mb-1.5">
+                      <span class="px-2 py-0.5 rounded text-[10px] font-extrabold ${
+                        isSelected
+                          ? 'bg-brandOrange-500 text-white'
+                          : isGate
+                            ? 'bg-amber-200 text-amber-950'
+                            : 'bg-slate-100 text-navy-900'
+                      }">${node.id} ${isGate ? '◆ GATE' : ''}</span>
+                      <span class="text-[10px] font-semibold ${isSelected ? 'text-slate-300' : 'text-slate-500'}">${node.owner}</span>
+                    </div>
+                    <div class="font-display font-bold text-xs leading-snug">${node.title}</div>
+                  </button>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const activeNode = workflowNodes.find(n => n.id === selectedWorkflowNodeId) || workflowNodes[0];
+      const isGate = activeNode.type === 'gate';
+      inspector.innerHTML = `
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+          <span class="px-2.5 py-1 rounded-lg bg-brandOrange-500 text-white text-xs font-extrabold">${activeNode.id}</span>
+          <span class="text-[11px] font-bold uppercase tracking-wider ${isGate ? 'text-amber-400' : 'text-sky-400'}">
+            ${isGate ? '◆ Decision Gateway Node' : '● Process Action Node'}
+          </span>
+        </div>
+        <div class="space-y-2 animate-slow-reveal">
+          <div class="text-[11px] text-slate-400 font-semibold">${activeNode.stageName}</div>
+          <h3 class="font-display font-extrabold text-lg text-white">${activeNode.title}</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">${activeNode.desc}</p>
+        </div>
+        <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs space-y-1">
+          <div class="text-slate-400">Primary Swimlane Owner</div>
+          <div class="font-bold text-white"><i class="fa-solid fa-user-tie text-brandOrange-500 mr-1.5"></i>${activeNode.owner}</div>
+        </div>
+      `;
+    }
+
+    function renderSimulatorStage() {
+      const container = document.getElementById('simulatorContainer');
+      if (!container) return;
+      const sc = simulatorScenarios[simStepIndex];
+      if (!sc) {
+        container.innerHTML = `
+          <div class="text-center py-4 space-y-2">
+            <div class="text-emerald-600 font-display font-extrabold text-base"><i class="fa-solid fa-award mr-1.5"></i>Workflow Simulation Completed!</div>
+            <p class="text-xs text-slate-600">You have successfully navigated the GICF decision gateways.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="space-y-3 animate-slow-reveal">
+          <div class="text-xs font-bold text-navy-900">${sc.question}</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            ${sc.options.map((opt, idx) => `
+              <button type="button" onclick="handleSimChoice(${idx})" class="text-left p-3.5 rounded-xl bg-white border border-slate-300 hover:border-brandOrange-500 text-xs font-medium text-navy-900">
+                ${opt.text}
+              </button>
+            `).join('')}
+          </div>
+          <div id="simFeedbackBox" class="hidden p-3 rounded-xl text-xs font-semibold"></div>
+        </div>
+      `;
+    }
+
+    function handleSimChoice(idx) {
+      const sc = simulatorScenarios[simStepIndex];
+      if (!sc) return;
+      const opt = sc.options[idx];
+      const fb = document.getElementById('simFeedbackBox');
+      if (!fb) return;
+
+      fb.classList.remove('hidden');
+      if (opt.correct) {
+        fb.className = 'p-3 rounded-xl text-xs font-semibold bg-emerald-50 border border-emerald-200 text-emerald-800';
+        fb.innerHTML = `<i class="fa-solid fa-circle-check mr-1.5"></i>${opt.feedback} <button type="button" onclick="nextSimStep()" class="ml-2 underline font-extrabold">Next Scenario →</button>`;
+      } else {
+        fb.className = 'p-3 rounded-xl text-xs font-semibold bg-rose-50 border border-rose-200 text-rose-800';
+        fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1.5"></i>${opt.feedback}`;
+      }
+    }
+
+    function nextSimStep() {
+      simStepIndex++;
+      renderSimulatorStage();
+    }
+
+    function resetSimulator() {
+      simStepIndex = 0;
+      renderSimulatorStage();
+    }
+
+    // =========================================================================
+    // 7. ASSESSMENTS (EXAM & ORDERING CHALLENGE)
+    // =========================================================================
+    function syncAssessmentGates() {
+      const qLocked = document.getElementById('quizLockedOverlay');
+      const qUnlocked = document.getElementById('quizUnlockedBody');
+      if (qLocked && qUnlocked) {
+        qLocked.classList.toggle('hidden', assessmentApprovals.quiz);
+        qUnlocked.classList.toggle('hidden', !assessmentApprovals.quiz);
+      }
+
+      const oLocked = document.getElementById('orderingLockedOverlay');
+      const oUnlocked = document.getElementById('orderingUnlockedBody');
+      if (oLocked && oUnlocked) {
+        oLocked.classList.toggle('hidden', assessmentApprovals.ordering);
+        oUnlocked.classList.toggle('hidden', !assessmentApprovals.ordering);
+      }
+    }
+
+    function toggleAssessmentApproval(type) {
+      assessmentApprovals[type] = !assessmentApprovals[type];
+      syncAssessmentGates();
+      renderRoleGovernance();
+    }
+
+    function unlockAssessmentWithCode(type) {
+      const inputId = type === 'quiz' ? 'quizUnlockInput' : 'orderingUnlockInput';
+      const errId = type === 'quiz' ? 'quizUnlockError' : 'orderingUnlockError';
+      const val = (document.getElementById(inputId)?.value || '').trim();
+      if (val === TRAINER_APPROVAL_CODE) {
+        document.getElementById(errId)?.classList.add('hidden');
+        assessmentApprovals[type] = true;
+        syncAssessmentGates();
+        renderRoleGovernance();
+      } else {
+        document.getElementById(errId)?.classList.remove('hidden');
+      }
+    }
+
+    function renderQuiz() {
+      const container = document.getElementById('quizContainer');
+      if (!container) return;
+      const showKey = document.getElementById('showAnswerKeyCheckbox')?.checked;
+
+      container.innerHTML = quizQuestions.map((q, qIdx) => `
+        <div class="p-4 rounded-xl bg-slateBg border border-slate-200 space-y-2 text-xs">
+          <div class="font-bold text-navy-900">${q.q}</div>
+          <div class="space-y-1.5">
+            ${q.options.map((opt, oIdx) => `
+              <label class="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-brandOrange-500">
+                <input type="radio" name="quiz_q_${qIdx}" value="${oIdx}" class="text-brandOrange-500" />
+                <span>${opt}</span>
+              </label>
+            `).join('')}
+          </div>
+          ${showKey ? `<div class="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold mt-1">Answer: ${q.options[q.answer]} — ${q.rationale}</div>` : ''}
+        </div>
+      `).join('');
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      quizQuestions.forEach((q, idx) => {
+        const picked = document.querySelector(`input[name="quiz_q_${idx}"]:checked`);
+        if (picked && Number(picked.value) === q.answer) score++;
+      });
+      const banner = document.getElementById('quizScoreBanner');
+      if (banner) {
+        const passed = score >= 6;
+        banner.innerHTML = passed
+          ? `<span class="text-emerald-600">Score: ${score} / ${quizQuestions.length} — PASSED ✓</span>`
+          : `<span class="text-rose-600">Score: ${score} / ${quizQuestions.length} — Review SOPs & Retry</span>`;
+      }
+    }
+
+    function initOrderingGame() {
+      currentOrderingItems = [...canonicalMilestones].sort(() => Math.random() - 0.5);
+      renderOrderingList();
+    }
+
+    function renderOrderingList() {
+      const container = document.getElementById('orderingListContainer');
+      if (!container) return;
+      container.innerHTML = currentOrderingItems.map((item, idx) => `
+        <div class="flex items-center justify-between gap-2 p-3 rounded-xl bg-slateBg border border-slate-200 text-xs">
+          <span class="font-medium text-navy-900"><strong class="text-brandOrange-600 mr-1.5">#${idx + 1}</strong>${item.text}</span>
+          <div class="flex items-center gap-1 shrink-0">
+            <button type="button" onclick="moveOrderingItem(${idx}, -1)" ${idx === 0 ? 'disabled' : ''} class="w-7 h-7 rounded-lg bg-white border border-slate-300 disabled:opacity-40"><i class="fa-solid fa-chevron-up"></i></button>
+            <button type="button" onclick="moveOrderingItem(${idx}, 1)" ${idx === currentOrderingItems.length - 1 ? 'disabled' : ''} class="w-7 h-7 rounded-lg bg-white border border-slate-300 disabled:opacity-40"><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function moveOrderingItem(idx, dir) {
+      const target = idx + dir;
+      if (target < 0 || target >= currentOrderingItems.length) return;
+      const temp = currentOrderingItems[idx];
+      currentOrderingItems[idx] = currentOrderingItems[target];
+      currentOrderingItems[target] = temp;
+      renderOrderingList();
+    }
+
+    function checkOrderingSequence() {
+      const isCorrect = currentOrderingItems.every((item, idx) => item.id === canonicalMilestones[idx].id);
+      const msg = document.getElementById('orderingResultMsg');
+      if (!msg) return;
+      msg.innerHTML = isCorrect
+        ? '<span class="text-emerald-600"><i class="fa-solid fa-circle-check mr-1"></i>Perfect chronological sequence!</span>'
+        : '<span class="text-rose-600"><i class="fa-solid fa-circle-xmark mr-1"></i>Not quite in chronological order yet—adjust and verify again.</span>';
+    }
+
+    // =========================================================================
+    // 8. ROLE-SPECIFIC TOOLS & GOVERNANCE HUB
+    // =========================================================================
+    function renderRoleGovernance() {
+      const container = document.getElementById('roleHubContent');
+      if (!container) return;
+
+      if (currentRole === 'recruiter') {
+        container.innerHTML = `
+          <div class="space-y-6">
+            <!-- SROCI Prescreening Summary Generator -->
+            <div class="bg-white rounded-2xl p-6 border-2 border-navy-900/15 shadow-sm space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                <div>
+                  <span class="px-2.5 py-0.5 rounded bg-brandOrange-50 text-brandOrange-700 border border-brandOrange-500/25 text-[11px] font-extrabold uppercase">Node P09 & Node P12 Endorsement Tool</span>
+                  <h3 class="font-display font-extrabold text-lg sm:text-xl text-navy-900 mt-1">SROCI Prescreening Summary Builder</h3>
+                  <p class="text-xs text-slate-600">Complete the standardized SROCI Prescreening Summary during your Node P09 phone interview and copy it directly into your Shared Client Tracker or ATS remarks.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button type="button" onclick="clearPrescreeningForm()" class="bg-slate-100 hover:bg-slate-200 text-navy-900 text-xs font-bold px-3.5 py-2 rounded-xl transition">
+                    <i class="fa-solid fa-eraser mr-1"></i> Clear
+                  </button>
+                  <button type="button" onclick="copyPrescreeningSummary()" id="copyPrescreenBtn" class="bg-brandOrange-500 hover:bg-brandOrange-600 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-sm transition">
+                    <i class="fa-regular fa-copy mr-1"></i> Copy Summary
+                  </button>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+                <!-- Left 7 Cols: Structured Prescreening Fields -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Candidate Full Name</label>
+                    <input type="text" id="psCandidateName" oninput="generatePrescreeningSummary()" placeholder="e.g., Juan Dela Cruz" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Active Mobile Number</label>
+                    <input type="text" id="psContactNo" oninput="generatePrescreeningSummary()" placeholder="e.g., 0917-123-4567" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Email Address (Verified for ATS)</label>
+                    <input type="email" id="psEmail" oninput="generatePrescreeningSummary()" placeholder="e.g., juan.delacruz@email.com" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Current City / Location</label>
+                    <input type="text" id="psAddress" oninput="generatePrescreeningSummary()" placeholder="e.g., Pasig City" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Highest Educational Attainment</label>
+                    <input type="text" id="psEducation" oninput="generatePrescreeningSummary()" placeholder="e.g., College Graduate / 2nd Yr College" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Total BPO / Work Experience</label>
+                    <input type="text" id="psBpoExp" oninput="generatePrescreeningSummary()" placeholder="e.g., 18 Months Voice CSR" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Previous Company & Role</label>
+                    <input type="text" id="psPrevCompany" oninput="generatePrescreeningSummary()" placeholder="e.g., ABC BPO — Retail Support" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Reason for Leaving</label>
+                    <input type="text" id="psReasonLeaving" oninput="generatePrescreeningSummary()" placeholder="e.g., Career growth / Closer to home" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Target Client Account & Position</label>
+                    <input type="text" id="psTargetAccount" oninput="generatePrescreeningSummary()" placeholder="e.g., Alorica — Healthcare CSR" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Preferred Site Location</label>
+                    <input type="text" id="psPreferredSite" oninput="generatePrescreeningSummary()" placeholder="e.g., Cubao / Centris" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Aim Fluent Comms Rating</label>
+                    <select id="psCommsRating" onchange="generatePrescreeningSummary()" class="w-full border border-slate-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:border-brandOrange-500">
+                      <option value="5 / 5 — Excellent Fluency, Grammar & Empathy">5 / 5 — Excellent Fluency, Grammar & Empathy</option>
+                      <option value="4 / 5 — Good Fluency & Clarity (Voice Ready)" selected>4 / 5 — Good Fluency & Clarity (Voice Ready)</option>
+                      <option value="3 / 5 — Moderate Fluency (Non-Voice / Blended Fit)">3 / 5 — Moderate Fluency (Non-Voice / Blended Fit)</option>
+                      <option value="2 / 5 — Needs Coaching / Re-Profiling">2 / 5 — Needs Coaching / Re-Profiling</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Screened By (SROCI Recruiter)</label>
+                    <input type="text" id="psRecruiterName" oninput="generatePrescreeningSummary()" placeholder="Enter your recruiter name" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="block font-bold text-navy-900 mb-1">Working Conditions, Shifting & Salary Amenability</label>
+                    <input type="text" id="psAmenability" oninput="generatePrescreeningSummary()" value="Yes — Amenable to shifting schedule, onsite/hybrid setup, and salary package" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="block font-bold text-navy-900 mb-1">Recruiter Assessment & Endorsement Remarks</label>
+                    <input type="text" id="psRecruiterNotes" oninput="generatePrescreeningSummary()" placeholder="Highlight strengths, availability to start, and coaching notes..." class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                </div>
+
+                <!-- Right 5 Cols: Formatted Prescreening Summary Output -->
+                <div class="lg:col-span-5 space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Formatted Summary Output</span>
+                    <span id="psSentBadge" class="text-[11px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-clock mr-1"></i>Not Yet Marked as Sent</span>
+                  </div>
+                  <textarea id="prescreeningOutputBox" rows="10" readonly class="w-full text-xs font-mono bg-slateBg border border-slate-300 rounded-xl p-3.5 text-navy-900 leading-relaxed"></textarea>
+
+                  <!-- Prescreening Output Controls, Readiness Meter & Usage Status -->
+                  <div class="p-4 rounded-xl bg-white border-2 border-navy-900/20 shadow-sm space-y-3.5 text-xs">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+                      <div>
+                        <div class="font-display font-extrabold text-navy-900 flex items-center gap-1.5">
+                          <i class="fa-solid fa-clipboard-check text-brandOrange-500"></i>
+                          <span>Prescreening Output & Endorsement Controls</span>
+                        </div>
+                        <div id="psCompletenessText" class="text-[11px] font-semibold text-slate-600 mt-0.5">0 of 11 candidate fields completed</div>
+                      </div>
+                      <span id="psReadinessPill" class="px-2.5 py-1 rounded-lg bg-slate-200 text-slate-800 text-[11px] font-extrabold">Draft</span>
+                    </div>
+
+                    <div>
+                      <label for="psUsageStatus" class="block font-bold text-navy-900 mb-1">Prescreening Usage / Verification Status</label>
+                      <select id="psUsageStatus" onchange="generatePrescreeningSummary()" class="w-full border border-slate-300 rounded-lg px-3 py-2 bg-slateBg text-navy-900 font-semibold focus:outline-none focus:border-brandOrange-500 cursor-pointer">
+                        <option value="For Correction — something needs to be corrected before confirmation.">For Correction — something needs to be corrected before confirmation.</option>
+                        <option value="Pending Correction — correction is needed before it can be confirmed.">Pending Correction — correction is needed before it can be confirmed.</option>
+                        <option value="For Verification — details still need to be checked.">For Verification — details still need to be checked.</option>
+                        <option value="Needs Revision — the information needs to be updated.">Needs Revision — the information needs to be updated.</option>
+                        <option value="Not Confirmed — the information has not been validated yet.">Not Confirmed — the information has not been validated yet.</option>
+                        <option value="To Be Confirmed (TBC) — final confirmation is still pending.">To Be Confirmed (TBC) — final confirmation is still pending.</option>
+                        <option value="CONFIRMED - Details have been reviewed and are accurate">CONFIRMED - Details have been reviewed and are accurate</option>
+                      </select>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+                      <button type="button" onclick="togglePrescreeningSent()" id="psSentToggleBtn" class="px-4 py-2.5 rounded-xl text-xs font-bold bg-navy-900 hover:bg-navy-800 text-white shadow-sm transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Confirm Prescreening Summary Sent</span>
+                      </button>
+                      <span id="psSentTimestamp" class="text-[11px] text-emerald-700 font-bold"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lead Intake Template Card (Node P06) -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                <div>
+                  <span class="px-2.5 py-0.5 rounded bg-blue-50 text-navy-900 border border-blue-200 text-[11px] font-extrabold uppercase">Node P06 Quick Tool</span>
+                  <h3 class="font-display font-bold text-lg text-navy-900 mt-1">Lead Intake Template</h3>
+                  <p class="text-xs text-slate-500">Customize the role, site, and compensation package to generate a ready-to-send Lead Intake Template for applicants.</p>
+                </div>
+                <button type="button" onclick="copyMessengerScript()" id="copyMsgBtn" class="bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-xs transition">
+                  <i class="fa-regular fa-copy mr-1"></i>Copy Template
+                </button>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
+                <div class="md:col-span-5 space-y-3 text-xs">
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Role / Account Title</label>
+                    <input type="text" id="tplAccount" oninput="updateMessengerTemplate()" value="Customer Service Representative" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Site / Work Setup</label>
+                    <input type="text" id="tplSite" oninput="updateMessengerTemplate()" value="Metro Manila / Hybrid" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                  <div>
+                    <label class="block font-bold text-navy-900 mb-1">Compensation Package</label>
+                    <input type="text" id="tplPackage" oninput="updateMessengerTemplate()" value="Up to PHP 26,000 + Allowances" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brandOrange-500" />
+                  </div>
+                </div>
+                <div class="md:col-span-7">
+                  <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">Formatted Lead Intake Template</label>
+                  <textarea id="messengerScriptBox" rows="10" readonly class="w-full text-xs font-mono bg-slateBg border border-slate-300 rounded-xl p-3.5 text-navy-900 leading-relaxed"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        generatePrescreeningSummary();
+        updateMessengerTemplate();
+      } else if (currentRole === 'trainer') {
+        container.innerHTML = `
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+              <div>
+                <span class="px-2.5 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[11px] font-extrabold uppercase">Trainer Facilitation Console</span>
+                <h3 class="font-display font-bold text-lg sm:text-xl text-navy-900 mt-1">5-Day Academy Delivery & Assessment Approval Gatekeeper</h3>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-amber-50 border border-amber-300 space-y-3">
+              <div class="text-xs font-extrabold text-amber-950"><i class="fa-solid fa-shield-check mr-1.5"></i>Live Cohort Assessment Approval Controls</div>
+              <p class="text-xs text-slate-700">Locking or unlocking an assessment updates its availability for trainees in the Assessments tab.</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-center justify-between">
+                  <div>
+                    <div class="text-xs font-bold text-navy-900">8-Question Certification Exam</div>
+                    <div class="text-[11px] text-slate-500">Status: ${assessmentApprovals.quiz ? '<strong class="text-emerald-600">Approved & Unlocked</strong>' : '<strong class="text-amber-600">Locked</strong>'}</div>
+                  </div>
+                  <button type="button" onclick="toggleAssessmentApproval('quiz')" class="px-3.5 py-2 rounded-xl text-xs font-bold ${assessmentApprovals.quiz ? 'bg-rose-600 text-white' : 'bg-emerald-600 text-white'}">
+                    ${assessmentApprovals.quiz ? 'Lock Exam' : 'Approve Exam'}
+                  </button>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-center justify-between">
+                  <div>
+                    <div class="text-xs font-bold text-navy-900">SOP Milestone Ordering Challenge</div>
+                    <div class="text-[11px] text-slate-500">Status: ${assessmentApprovals.ordering ? '<strong class="text-emerald-600">Approved & Unlocked</strong>' : '<strong class="text-amber-600">Locked</strong>'}</div>
+                  </div>
+                  <button type="button" onclick="toggleAssessmentApproval('ordering')" class="px-3.5 py-2 rounded-xl text-xs font-bold ${assessmentApprovals.ordering ? 'bg-rose-600 text-white' : 'bg-emerald-600 text-white'}">
+                    ${assessmentApprovals.ordering ? 'Lock Ordering' : 'Approve Ordering'}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div class="p-4 rounded-xl bg-slateBg border border-slate-200">
+                <strong class="text-navy-900 block mb-1">Days 1–2 (Decks 1 & 2)</strong>
+                Ramp Plan anatomy, stakeholder roles, FB/BossJob/Reddit sourcing ads, and Lead Intake Template capture.
+              </div>
+              <div class="p-4 rounded-xl bg-slateBg border border-slate-200">
+                <strong class="text-navy-900 block mb-1">Days 3–4 (Aim Fluent & Deck 4)</strong>
+                Mock phone pre-screening, Aim Fluent vocal coaching, ICIMS/Workday/ORC encoding, and Node P18 Cross-Endorsement.
+              </div>
+              <div class="p-4 rounded-xl bg-slateBg border border-slate-200">
+                <strong class="text-navy-900 block mb-1">Day 5 (Revalida & Graduation)</strong>
+                Graded mock calls, Prescreening Summary audit, Trainer-approved exams, and End-of-Day Graduation.
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+            <div>
+              <span class="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[11px] font-extrabold uppercase">Management SLA & Funnel Governance</span>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-navy-900 mt-1">Recruitment Ramp Fulfillment & Conversion Benchmarks</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+              <div class="p-4 rounded-xl bg-slateBg border border-slate-200">
+                <div class="text-slate-500 font-semibold">Ramp Cascade SLA (P01–P02)</div>
+                <div class="text-xl font-display font-extrabold text-navy-900 mt-1">&lt; 2 Hours</div>
+                <div class="text-emerald-600 mt-1">Email receipt to Recruiter brief</div>
+              </div>
+              <div class="p-4 rounded-xl bg-slateBg border border-slate-200">
+                <div class="text-slate-500 font-semibold">Lead-to-PreScreen Rate</div>
+                <div class="text-xl font-display font-extrabold text-navy-900 mt-1">65% Target</div>
+                <div class="text-brandOrange-600 mt-1">Nodes P06–P09 conversion</div>
+              </div>
+              <div class="p-4 rounded-xl bg-slateBg border border-slate-200">
+                <div class="text-slate-500 font-semibold">Client Show-Up Rate</div>
+                <div class="text-xl font-display font-extrabold text-navy-900 mt-1">85%+ Target</div>
+                <div class="text-indigo-600 mt-1">Driven by Nodes P13–P14 warm-up</div>
+              </div>
+              <div class="p-4 rounded-xl bg-slateBg border border-slate-200">
+                <div class="text-slate-500 font-semibold">Cross-Endorsement Recovery</div>
+                <div class="text-xl font-display font-extrabold text-navy-900 mt-1">30%+ Re-Match</div>
+                <div class="text-emerald-600 mt-1">Node P18 zero-waste pipeline</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function generatePrescreeningSummary() {
+      const outBox = document.getElementById('prescreeningOutputBox');
+      if (!outBox) return;
+
+      const candidateName = (document.getElementById('psCandidateName')?.value || '').trim() || '[Full Name]';
+      const contactNo = (document.getElementById('psContactNo')?.value || '').trim() || '[Mobile Number]';
+      const email = (document.getElementById('psEmail')?.value || '').trim() || '[Email Address]';
+      const address = (document.getElementById('psAddress')?.value || '').trim() || '[City / Location]';
+      const education = (document.getElementById('psEducation')?.value || '').trim() || '[Highest Education]';
+      const bpoExp = (document.getElementById('psBpoExp')?.value || '').trim() || '[Years/Months & Account Type]';
+      const prevCompany = (document.getElementById('psPrevCompany')?.value || '').trim() || '[Company / Role]';
+      const reasonLeaving = (document.getElementById('psReasonLeaving')?.value || '').trim() || '[Reason for Leaving]';
+      const targetAccount = (document.getElementById('psTargetAccount')?.value || '').trim() || '[Client Account / Position]';
+      const preferredSite = (document.getElementById('psPreferredSite')?.value || '').trim() || '[Site Location]';
+      const commsRating = document.getElementById('psCommsRating')?.value || '4 / 5 — Good Fluency & Clarity (Voice Ready)';
+      const recruiterName = (document.getElementById('psRecruiterName')?.value || '').trim() || '[SROCI Recruiter Name]';
+      const amenability = (document.getElementById('psAmenability')?.value || '').trim() || 'Yes — Amenable to shifting schedule, onsite/hybrid setup, and salary package';
+      const recruiterNotes = (document.getElementById('psRecruiterNotes')?.value || '').trim() || 'Pre-screened and endorsed for Client Screening.';
+      const usageStatus = document.getElementById('psUsageStatus')?.value || 'For Correction — something needs to be corrected before confirmation.';
+      const sentLine = prescreeningSentConfirmed
+        ? `Sent Status: CONFIRMED SENT (${prescreeningSentTime})`
+        : 'Sent Status: NOT YET CONFIRMED SENT';
+
+      const trackedIds = [
+        'psCandidateName', 'psContactNo', 'psEmail', 'psAddress',
+        'psEducation', 'psBpoExp', 'psPrevCompany', 'psReasonLeaving',
+        'psTargetAccount', 'psPreferredSite', 'psRecruiterName'
+      ];
+      const filledCount = trackedIds.filter(id => (document.getElementById(id)?.value || '').trim().length > 0).length;
+      const compTextEl = document.getElementById('psCompletenessText');
+      const readyPillEl = document.getElementById('psReadinessPill');
+      if (compTextEl) {
+        compTextEl.textContent = `${filledCount} of ${trackedIds.length} candidate fields completed`;
+      }
+      if (readyPillEl) {
+        if (filledCount === trackedIds.length) {
+          readyPillEl.textContent = 'Complete ✓';
+          readyPillEl.className = 'px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-[11px] font-bold';
+        } else if (filledCount > 0) {
+          readyPillEl.textContent = 'In Progress';
+          readyPillEl.className = 'px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 text-[11px] font-bold';
+        } else {
+          readyPillEl.textContent = 'Draft';
+          readyPillEl.className = 'px-2.5 py-1 rounded-lg bg-slate-200 text-slate-700 text-[11px] font-bold';
+        }
+      }
+
+      outBox.value = [
+        '=== SROCI PRESCREENING SUMMARY ===',
+        `Candidate Name: ${candidateName}`,
+        `Mobile Number: ${contactNo}`,
+        `Verified ATS Email: ${email}`,
+        `Current Location: ${address}`,
+        `Educational Attainment: ${education}`,
+        `Total BPO / Work Exp: ${bpoExp}`,
+        `Previous Company & Role: ${prevCompany}`,
+        `Reason for Leaving: ${reasonLeaving}`,
+        `Target Account & Role: ${targetAccount}`,
+        `Preferred Site Location: ${preferredSite}`,
+        `Aim Fluent Comms Score: ${commsRating}`,
+        `Amenability: ${amenability}`,
+        `Recruiter Remarks: ${recruiterNotes}`,
+        `Screened By (SROCI): ${recruiterName}`,
+        `Verification / Usage Status: ${usageStatus}`,
+        sentLine
+      ].join('\n');
+    }
+
+    function syncPrescreeningSentVisuals() {
+      const btn = document.getElementById('psSentToggleBtn');
+      const badge = document.getElementById('psSentBadge');
+      const tsEl = document.getElementById('psSentTimestamp');
+
+      if (btn) {
+        if (prescreeningSentConfirmed) {
+          btn.className = 'px-4 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition flex items-center gap-1.5';
+          btn.innerHTML = '<i class="fa-solid fa-circle-check"></i><span>Prescreening Summary Sent ✓</span>';
+        } else {
+          btn.className = 'px-4 py-2.5 rounded-xl text-xs font-bold bg-navy-900 hover:bg-navy-800 text-white shadow-sm transition flex items-center gap-1.5';
+          btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i><span>Confirm Prescreening Summary Sent</span>';
+        }
+      }
+
+      if (badge) {
+        if (prescreeningSentConfirmed) {
+          badge.className = 'text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full';
+          badge.innerHTML = '<i class="fa-solid fa-circle-check mr-1"></i>Sent Confirmed';
+        } else {
+          badge.className = 'text-[11px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full';
+          badge.innerHTML = '<i class="fa-solid fa-clock mr-1"></i>Not Yet Marked as Sent';
+        }
+      }
+
+      if (tsEl) {
+        tsEl.textContent = prescreeningSentConfirmed ? `Confirmed at ${prescreeningSentTime}` : '';
+      }
+    }
+
+    function togglePrescreeningSent() {
+      prescreeningSentConfirmed = !prescreeningSentConfirmed;
+      prescreeningSentTime = prescreeningSentConfirmed
+        ? new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        : '';
+
+      syncPrescreeningSentVisuals();
+      generatePrescreeningSummary();
+    }
+
+    function clearPrescreeningForm() {
+      [
+        'psCandidateName', 'psContactNo', 'psEmail', 'psAddress',
+        'psEducation', 'psBpoExp', 'psPrevCompany', 'psReasonLeaving',
+        'psTargetAccount', 'psPreferredSite', 'psRecruiterName', 'psRecruiterNotes'
+      ].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+      const statusEl = document.getElementById('psUsageStatus');
+      if (statusEl) statusEl.selectedIndex = 0;
+      if (prescreeningSentConfirmed) {
+        togglePrescreeningSent();
+      } else {
+        generatePrescreeningSummary();
+      }
+    }
+
+    function copyPrescreeningSummary() {
+      const box = document.getElementById('prescreeningOutputBox');
+      const btn = document.getElementById('copyPrescreenBtn');
+      if (!box) return;
+      box.select();
+      box.setSelectionRange(0, 99999);
+      try {
+        document.execCommand('copy');
+        if (btn) {
+          btn.innerHTML = '<i class="fa-solid fa-check mr-1"></i> Copied!';
+          setTimeout(() => {
+            btn.innerHTML = '<i class="fa-regular fa-copy mr-1"></i> Copy Summary';
+          }, 2000);
+        }
+      } catch (e) {}
+    }
+
+    function updateMessengerTemplate() {
+      const box = document.getElementById('messengerScriptBox');
+      if (!box) return;
+      const acct = (document.getElementById('tplAccount')?.value || 'Customer Service Representative').trim();
+      const site = (document.getElementById('tplSite')?.value || 'Metro Manila / Hybrid').trim();
+      const pkg = (document.getElementById('tplPackage')?.value || 'Up to PHP 26,000 + Allowances').trim();
+
+      box.value = [
+        `Hi! Thank you for your interest in our ${acct} opening (${site} | ${pkg}).`,
+        `To schedule your Pre-Screening Phone Interview, please reply with the completed Lead Intake Template below:`,
+        ``,
+        `• Full Name:`,
+        `• Active Mobile Number:`,
+        `• Active Email Address:`,
+        `• Current City / Location:`,
+        `• Highest Educational Attainment:`,
+        `• Total BPO / Customer Service Experience:`,
+        `• Preferred Time for Phone Call Today:`
+      ].join('\n');
+    }
+
+    function copyMessengerScript() {
+      const box = document.getElementById('messengerScriptBox');
+      const btn = document.getElementById('copyMsgBtn');
+      if (!box) return;
+      box.select();
+      box.setSelectionRange(0, 99999);
+      try {
+        document.execCommand('copy');
+        if (btn) {
+          btn.innerHTML = '<i class="fa-solid fa-check mr-1"></i>Copied!';
+          setTimeout(() => {
+            btn.innerHTML = '<i class="fa-regular fa-copy mr-1"></i>Copy Template';
+          }, 2000);
+        }
+      } catch (e) {}
+    }
+
+    // =========================================================================
+    // 9. GLOBAL SEARCH & CANVA MODAL
+    // =========================================================================
+    function handleGlobalSearch(query) {
+      const q = (query || '').trim().toLowerCase();
+      const panel = document.getElementById('searchResultsPanel');
+      const list = document.getElementById('searchResultsList');
+      const echo = document.getElementById('searchQueryEcho');
+      const clearBtn = document.getElementById('clearSearchBtn');
+
+      if (!q) {
+        panel?.classList.add('hidden');
+        clearBtn?.classList.add('hidden');
+        return;
+      }
+
+      clearBtn?.classList.remove('hidden');
+      echo.textContent = query;
+      panel?.classList.remove('hidden');
+
+      const matches = [];
+      curriculumDecks.forEach(d => {
+        if (d.title.toLowerCase().includes(q) || d.summary.toLowerCase().includes(q)) {
+          matches.push({ type: 'Curriculum Deck', title: d.title, desc: d.summary, action: `openModuleModal('${d.id}')` });
+        }
+      });
+      workflowNodes.forEach(n => {
+        if (n.title.toLowerCase().includes(q) || n.desc.toLowerCase().includes(q) || n.id.toLowerCase().includes(q)) {
+          matches.push({ type: 'Process Node', title: `${n.id}: ${n.title}`, desc: n.desc, action: `switchTab('workflow'); selectWorkflowStep('${n.id}')` });
+        }
+      });
+      Object.entries(clientProcessMatrix).forEach(([key, c]) => {
+        if (c.name.toLowerCase().includes(q) || c.sites.toLowerCase().includes(q) || c.atsChannel.toLowerCase().includes(q)) {
+          matches.push({ type: 'Client Playbook', title: c.name, desc: c.atsChannel, action: `switchTab('workflow'); selectClientProcess('${key}')` });
+        }
+      });
+
+      list.innerHTML = matches.length
+        ? matches.slice(0, 6).map(m => `
+            <button type="button" onclick="${m.action}" class="text-left p-3 rounded-xl bg-slateBg hover:bg-brandOrange-50 border border-slate-200">
+              <div class="text-[10px] font-extrabold uppercase text-brandOrange-600">${m.type}</div>
+              <div class="font-bold text-xs text-navy-900 mt-0.5">${m.title}</div>
+              <div class="text-[11px] text-slate-600 truncate">${m.desc}</div>
+            </button>
+          `).join('')
+        : '<p class="text-xs text-slate-500">No matching decks, nodes, or client playbooks found.</p>';
+    }
+
+    function handleSearchEnter(event) {
+      if (event.key === 'Enter') {
+        const firstBtn = document.querySelector('#searchResultsList button');
+        if (firstBtn) firstBtn.click();
+      }
+    }
+
+    function clearGlobalSearch() {
+      const inp = document.getElementById('globalSearchInput');
+      if (inp) inp.value = '';
+      handleGlobalSearch('');
+    }
+
+    function openCanvaModal() {
+      document.getElementById('canvaEmbedModal')?.classList.remove('hidden');
+    }
+
+    function closeCanvaModal() {
+      document.getElementById('canvaEmbedModal')?.classList.add('hidden');
+    }
+
+    function copyCanvaMarkdown() {
+      const box = document.getElementById('canvaOutlineBox');
+      const btn = document.getElementById('copyCanvaBtn');
+      if (!box) return;
+      box.select();
+      box.setSelectionRange(0, 99999);
+      try {
+        document.execCommand('copy');
+        if (btn) {
+          btn.textContent = 'Copied!';
+          setTimeout(() => { btn.textContent = 'Copy Outline'; }, 2000);
+        }
+      } catch (e) {}
+    }
+
+    // =========================================================================
+    // 10. INITIALIZE APPLICATION ON LOAD
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      toggleSignInBatchField();
+      renderModules();
+      renderDiscussionTimeline('all');
+      selectPortalDeck('deck1');
+      renderWorkflowPhases();
+      selectClientProcess('coforge');
+      renderSimulatorStage();
+      renderQuiz();
+      initOrderingGame();
+      syncAssessmentGates();
+      applyRoleChange('recruiter');
+    });
+  </script>
+</body>
+</html>
